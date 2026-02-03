@@ -1,3 +1,16 @@
-body{
-  
+/* Define as cores para todo o site */
+:root {
+    --title-color: #9d4edd; /* Roxo para o título */
+    --accent-color: #7b2cbf; /* Roxo para links e destaques */
+    --interactive-accent: #9d4edd; /* Muda a cor de botões e seleções no Obsidian */
+}
+
+/* Aplica a cor especificamente ao título "Meu Obsidian" */
+.nav-header, .site-title {
+    color: var(--title-color) !important;
+}
+
+/* Opcional: muda a cor do texto "Search" e ícones para combinar */
+.nav-buttons-container, .search-input-container {
+    color: var(--accent-color);
 }
