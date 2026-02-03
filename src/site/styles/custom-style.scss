@@ -1,56 +1,53 @@
 body {
-    background-color: #121212 !important; /* Fundo preto do seu portfólio */
+    background-color: #121212 !important; /* Fundo do seu portfólio */
     color: #ced4da !important;
     font-family: 'Inter', sans-serif !important;
 
-    /* 1. BLOCO CENTRALIZADO (O efeito que você queria) */
-    .content-container, .content, main {
-        max-width: 850px !important; /* Largura ideal para não colar na parede */
-        margin: 0 auto !important;
-        padding: 40px 20px !important;
-        display: flex !important;
-        flex-direction: column !important;
+    /* 1. CENTRALIZA O BLOCO NO MEIO DO SITE (O que você viu na Imagem 2) */
+    .content-container, main, .content {
+        max-width: 800px !important; /* Limita a largura para criar as margens laterais */
+        margin-left: auto !important; 
+        margin-right: auto !important;
+        display: block !important; /* Garante que o bloco se comporte como uma coluna centralizada */
+        padding: 20px !important;
     }
 
-    /* 2. TEXTO JUSTIFICADO */
+    /* 2. FORMATAÇÃO DO TEXTO (MODELO JUSTIFICADO) */
     .content {
-        text-align: justify !important; /* Texto reto nas laterais */
-        line-height: 1.8 !important;
-        font-size: 1.15rem !important;
+        text-align: justify !important; /* Alinha o texto por linha nas duas pontas */
+        text-justify: inter-word; /* Melhora o espaçamento entre as palavras no modo justificado */
+        line-height: 1.8 !important; /* Espaçamento entre linhas igual ao da referência */
+        font-size: 1.1rem !important;
     }
 
-    /* 3. TAGS ACIMA DO TÍTULO (Estilo Wanderloots) */
+    /* 3. TÍTULO E TAGS (Centralizados apenas eles) */
+    .note-title {
+        text-align: center !important; /* O título continua no meio */
+        font-size: 2.8rem !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        margin-bottom: 1.5rem !important;
+    }
+
     .tag-container {
-        order: -1 !important; /* Move para o topo */
         display: flex !important;
-        justify-content: center !important;
+        justify-content: center !important; /* Centraliza as tags acima do título */
         gap: 10px !important;
         margin-bottom: 10px !important;
     }
 
-    /* 4. TÍTULO GRANDE E CENTRALIZADO */
-    .note-title {
-        font-size: 3rem !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
-        text-align: center !important;
-        margin-bottom: 2rem !important;
-        line-height: 1.2 !important;
-    }
-
-    /* 5. IDENTIDADE VISUAL (Sua marca registrada) */
-    .tag {
-        color: #1e90ff !important; /* Azul Rian Leicinio */
-        background-color: rgba(30, 144, 255, 0.1) !important;
-        padding: 4px 12px !important;
-        border-radius: 6px !important;
-        font-family: monospace !important;
-        border: 1px solid rgba(30, 144, 255, 0.2) !important;
-    }
-
-    /* Borda azul na lateral do texto (Vibe portfólio) */
+    /* 4. DETALHE RIAN LEICINIO (Borda Azul) */
     .markdown-rendered {
-        border-left: 4px solid #1e90ff !important; /* */
+        border-left: 4px solid #1e90ff !important; /* Borda azul do seu portfólio */
         padding-left: 25px !important;
+        margin-top: 20px !important;
+    }
+
+    /* Cor das tags para destacar */
+    .tag {
+        color: #1e90ff !important;
+        background-color: rgba(30, 144, 255, 0.1) !important;
+        padding: 4px 10px !important;
+        border-radius: 4px !important;
     }
 }
