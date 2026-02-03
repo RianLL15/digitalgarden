@@ -1,1 +1,49 @@
+body {
+    background-color: #121212 !important; /* Cor do seu portfólio */
+    color: #ced4da !important;
+    font-family: 'Inter', sans-serif !important;
 
+    /* --- TUDO AQUI DENTRO PARA FUNCIONAR --- */
+
+    .content-container {
+        max-width: 800px !important; /* Bloco centralizado */
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .note-title {
+        font-size: 2.8rem !important; /* Título imponente */
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        order: 1 !important; /* Garante que fique abaixo das tags */
+    }
+
+    .tag-container {
+        order: 0 !important; /* Tags no topo */
+        display: flex !important;
+        justify-content: center !important;
+        margin-bottom: 10px !important;
+    }
+
+    .content {
+        text-align: justify !important; /* Texto reto nas pontas */
+        line-height: 1.8 !important;
+        width: 100% !important;
+    }
+
+    /* Borda azul igual ao seu card de boas-vindas */
+    .markdown-rendered {
+        border-left: 4px solid #1e90ff !important;
+        padding-left: 20px !important;
+    }
+
+    /* Estilo das Tags */
+    .tag {
+        color: #1e90ff !important;
+        background-color: rgba(30, 144, 255, 0.1) !important;
+        padding: 2px 8px !important;
+        border-radius: 4px !important;
+    }
+}
