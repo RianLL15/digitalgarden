@@ -1,26 +1,47 @@
 body {
-    background-color: #121212; /* Mantém o fundo escuro do seu portfólio */
-    color: #ffffff;
+    background-color: #1a1b1e; /* Fundo escuro levemente azulado como na foto */
+    color: #ced4da; /* Cor do texto suave para não cansar a vista */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Centraliza o título e o corpo do texto */
-.content, .note-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Centraliza o Título e as Meta-informações */
+.note-title, .cre-date, .upd-date, .tag-container {
     text-align: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.note-title {
+    font-size: 2.5rem !important;
+    font-weight: 800;
+    color: #ffffff !important; /* Título em branco puro para destaque */
+    line-height: 1.2;
+}
+
+/* Centraliza e limita o corpo do texto para ficar igual à imagem */
+.content {
+    max-width: 800px !important; /* Largura idêntica à da referência */
     margin: 0 auto !important;
-    max-width: 750px; /* Largura rústica ideal para leitura centralizada */
+    padding: 2rem;
+    text-align: left; /* O bloco é centralizado, mas o texto flui melhor à esquerda */
+    line-height: 1.8; /* Espaçamento entre linhas para ficar "elegante" */
+    font-size: 1.1rem;
 }
 
-/* Garante que listas não fiquem bagunçadas ao centralizar */
-.content ul, .content ol {
-    text-align: left;
-    display: inline-block;
-}
-
-/* Seus títulos no azul característico */
-h1, h2, h3 {
+/* Estilização das Tags (os # que você viu na imagem) */
+.tag {
+    background-color: rgba(30, 144, 255, 0.1);
     color: #1e90ff !important;
-    text-align: center;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border: 1px solid rgba(30, 144, 255, 0.3);
+}
+
+/* Links no texto */
+.content a {
+    color: #58a6ff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
