@@ -1,22 +1,56 @@
 body {
-    background-color: red !important; /* COR CHAMATIVA PARA TESTE */
-    
-    * {
-        color: yellow !important; /* TEXTO AMARELO */
-    }
+    background-color: #121212 !important; /* Fundo preto do seu portfólio */
+    color: #ced4da !important;
+    font-family: 'Inter', sans-serif !important;
 
-    /* O BLOCO CENTRALIZADO QUE VOCÊ QUER */
+    /* 1. BLOCO CENTRALIZADO (O efeito que você queria) */
     .content-container, .content, main {
-        max-width: 600px !important;
+        max-width: 850px !important; /* Largura ideal para não colar na parede */
         margin: 0 auto !important;
-        background-color: blue !important; /* BLOCO AZUL PARA VER O LIMITE */
-        padding: 50px !important;
-        text-align: justify !important;
+        padding: 40px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
 
+    /* 2. TEXTO JUSTIFICADO */
+    .content {
+        text-align: justify !important; /* Texto reto nas laterais */
+        line-height: 1.8 !important;
+        font-size: 1.15rem !important;
+    }
+
+    /* 3. TAGS ACIMA DO TÍTULO (Estilo Wanderloots) */
+    .tag-container {
+        order: -1 !important; /* Move para o topo */
+        display: flex !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* 4. TÍTULO GRANDE E CENTRALIZADO */
     .note-title {
-        font-size: 5rem !important; /* TÍTULO GIGANTE */
+        font-size: 3rem !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
         text-align: center !important;
-        display: block !important;
+        margin-bottom: 2rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 5. IDENTIDADE VISUAL (Sua marca registrada) */
+    .tag {
+        color: #1e90ff !important; /* Azul Rian Leicinio */
+        background-color: rgba(30, 144, 255, 0.1) !important;
+        padding: 4px 12px !important;
+        border-radius: 6px !important;
+        font-family: monospace !important;
+        border: 1px solid rgba(30, 144, 255, 0.2) !important;
+    }
+
+    /* Borda azul na lateral do texto (Vibe portfólio) */
+    .markdown-rendered {
+        border-left: 4px solid #1e90ff !important; /* */
+        padding-left: 25px !important;
     }
 }
