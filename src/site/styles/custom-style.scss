@@ -41,4 +41,49 @@ code {
     color: #e69138 !important; /* Cor de destaque para código */
     padding: 0.2em 0.4em !important;
     border-radius: 3px !important;
+
+    /* 1. Centraliza o corpo do texto e define uma largura máxima confortável */
+.dg-main-content, .markdown-rendered, main {
+    max-width: 800px !important; /* Largura ideal para leitura */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 40px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centraliza itens flex */
+    text-align: left !important; /* Mantém o texto alinhado à esquerda para leitura, mas o bloco no centro */
+}
+
+/* 2. Centraliza especificamente títulos, imagens e parágrafos */
+.dg-main-content h1, 
+.dg-main-content h2, 
+.dg-main-content p, 
+.dg-main-content img,
+.dg-main-content .note-container {
+    width: 100% !important;
+    max-width: 750px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 3. Garante que as imagens fiquem centralizadas horizontalmente */
+img {
+    display: block !important;
+    margin: 20px auto !important;
+    border-radius: 12px !important; /* Estilo arredondado da imagem de exemplo */
+}
+
+/* 4. Ajuste para a Sidebar (Abas) não "empurrar" o conteúdo de forma estranha */
+.sidebar {
+    position: sticky !important;
+    top: 0;
+}
+
+/* 5. Estilo da Barra Superior (Header) para combinar com o exemplo */
+header, .navbar {
+    display: flex !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    background-color: #1c1c1c !important;
+}
 }
