@@ -44,4 +44,49 @@ body {
     color: #58a6ff;
     text-decoration: underline;
     text-underline-offset: 4px;
+
+/* Container principal para centralizar tudo */
+.content, .note-title, .tag-container {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center;
+}
+
+/* Coloca as Tags ACIMA do título, como na imagem */
+.tag-container {
+    order: -1; /* Move para o topo */
+    margin-bottom: 10px;
+    flex-direction: row; /* Mantém as tags lado a lado */
+    gap: 10px;
+}
+
+/* Estiliza o Título (Exatamente como a referência) */
+.note-title {
+    font-size: 2.8rem !important;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+/* Estiliza as Tags (#estudo #faculdade) */
+.tag {
+    color: #1e90ff !important;
+    font-family: monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+/* O Menu (Hambúrguer) no topo esquerdo */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #1e90ff;
+    cursor: pointer;
+    z-index: 100;
+}
 }
