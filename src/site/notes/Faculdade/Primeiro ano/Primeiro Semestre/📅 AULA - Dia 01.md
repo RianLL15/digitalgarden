@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/faculdade/primeiro-ano/primeiro-semestre/aula-dia-01/","tags":["gardenEntry"]}
+{"dg-publish":true,"permalink":"/faculdade/primeiro-ano/primeiro-semestre/aula-dia-01/"}
 ---
-
 
 
 ## 📘 Disciplina
@@ -12,7 +11,7 @@
 
 ## 🧠 O que ficou claro hoje
 
-
+- [[Sobre o meu Portfólio\|Sobre o meu Portfólio]]
 ## ❓ Dúvidas / Pontos para revisar
 
 
