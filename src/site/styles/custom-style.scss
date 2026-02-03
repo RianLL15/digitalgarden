@@ -1,7 +1,10 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
-body {
-    background-color: #1a1b1e; /* Fundo escuro levemente azulado */
-    color: #ced4da; /* Texto suave para leitura */
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.8;
+/* Centraliza o bloco de texto e justifica o conteúdo */
+main {
+  max-width: 800px;        /* largura confortável para leitura */
+  margin: 0 auto;          /* centraliza o bloco */
+  padding: 1.5rem;
+}
+
+main p {
+  text-align: justify;     /* texto justificado */
 }
