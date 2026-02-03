@@ -1,28 +1,3 @@
 body{
-   /* Adiciona o nome do seu site no topo */
-header::before {
-    content: "NOME DO SEU SITE AQUI"; /* <--- TROQUE PELO NOME QUE VOCÊ QUER */
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 1.2rem;
-    position: absolute;
-    left: 60px; /* Espaço para o ícone de menu */
-    top: 15px;
-}
 
-/* Garante que o ícone de menu (os três tracinhos) apareça */
-.dg-mobile-menu-button, .sidebar-toggle {
-    display: flex !important;
-    visibility: visible !important;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 1000;
-    color: #7575ff !important;
-}
-
-/* Ajusta o topo do site para não cobrir o conteúdo */
-main, .dg-main-content {
-    margin-top: 60px !important;
-}
 }
