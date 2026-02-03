@@ -3,11 +3,30 @@ body {
       ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
    ***/
-    //  background-color: white;
-    //  .content {
-    //   font-size: 14px;
-    //  }
-    //  h1 {
-    //   color: black;
-    //  }
+    body {
+    background-color: #121212; /* Mantém o fundo escuro do seu portfólio */
+    color: #ffffff;
+}
+
+/* Centraliza o título e o corpo do texto */
+.content, .note-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto !important;
+    max-width: 750px; /* Largura rústica ideal para leitura centralizada */
+}
+
+/* Garante que listas não fiquem bagunçadas ao centralizar */
+.content ul, .content ol {
+    text-align: left;
+    display: inline-block;
+}
+
+/* Seus títulos no azul característico */
+h1, h2, h3 {
+    color: #1e90ff !important;
+    text-align: center;
+}
 }
