@@ -1,8 +1,8 @@
 ---
-{"dg-publish":true,"permalink":"/faculdade/primeiro-ano/primeiro-semestre/aula-dia-01/"}
+{"dg-publish":true,"dg-home":false,"permalink":"/faculdade/primeiro-ano/primeiro-semestre/aula-dia-01/","dgPassFrontmatter":true}
 ---
 
-# 📅 AULA - Dia 01
+
 Dia 12/03
 
 ## 📘 Disciplina
