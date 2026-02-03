@@ -12,7 +12,7 @@ Dia 12/03
 
 ## 🧠 O que ficou claro hoje
 
-- [[Faculdade/Sobre o meu Portfólio\|Sobre o meu Portfólio]]
+
 ## ❓ Dúvidas / Pontos para revisar
 
 
