@@ -1,92 +1,79 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
 body {
-    background-color: #1a1b1e; /* Fundo escuro levemente azulado como na foto */
-    color: #ced4da; /* Cor do texto suave para não cansar a vista */
+    background-color: #1a1b1e; /* Fundo escuro levemente azulado */
+    color: #ced4da; /* Texto suave para leitura */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.8;
 }
 
-/* Centraliza o Título e as Meta-informações */
-.note-title, .cre-date, .upd-date, .tag-container {
-    text-align: center;
+/* --- LAYOUT CENTRALIZADO (O Bloco no Meio) --- */
+.content, .note-title, .tag-container {
+    max-width: 800px !important; /* Limita a largura para não colar na parede */
+    margin-left: auto !important; 
+    margin-right: auto !important;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TÍTULO E TAGS (Estilo Wanderloots) --- */
+.tag-container {
+    order: -1; /* Coloca as tags ACIMA do título */
+    flex-direction: row;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .note-title {
-    font-size: 2.5rem !important;
+    font-size: 2.8rem !important; /* Título grande e impactante */
     font-weight: 800;
-    color: #ffffff !important; /* Título em branco puro para destaque */
+    color: #ffffff !important;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
-/* Centraliza e limita o corpo do texto para ficar igual à imagem */
+/* --- TEXTO DO CONTEÚDO (Justificado) --- */
 .content {
-    max-width: 800px !important; /* Largura idêntica à da referência */
-    margin: 0 auto !important;
-    padding: 2rem;
-    text-align: left; /* O bloco é centralizado, mas o texto flui melhor à esquerda */
-    line-height: 1.8; /* Espaçamento entre linhas para ficar "elegante" */
+    text-align: justify; /* Texto alinhado nas duas pontas */
     font-size: 1.1rem;
+    width: 100%;
 }
 
-/* Estilização das Tags (os # que você viu na imagem) */
+/* --- ELEMENTOS VISUAIS (Azul Rústico) --- */
 .tag {
-    background-color: rgba(30, 144, 255, 0.1);
-    color: #1e90ff !important;
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
+    color: #1e90ff !important; /* Seu azul característico */
+    font-family: monospace;
+    font-size: 0.9rem;
     text-decoration: none;
-    border: 1px solid rgba(30, 144, 255, 0.3);
+    background-color: rgba(30, 144, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
-/* Links no texto */
 .content a {
     color: #58a6ff;
     text-decoration: underline;
     text-underline-offset: 4px;
-
-/* Container principal para centralizar tudo */
-.content, .note-title, .tag-container {
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center;
 }
 
-/* Coloca as Tags ACIMA do título, como na imagem */
-.tag-container {
-    order: -1; /* Move para o topo */
-    margin-bottom: 10px;
-    flex-direction: row; /* Mantém as tags lado a lado */
-    gap: 10px;
-}
-
-/* Estiliza o Título (Exatamente como a referência) */
-.note-title {
-    font-size: 2.8rem !important;
-    font-weight: 800;
-    color: #ffffff !important;
-    margin-top: 0;
-    line-height: 1.2;
-}
-
-/* Estiliza as Tags (#estudo #faculdade) */
-.tag {
-    color: #1e90ff !important;
-    font-family: monospace;
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-/* O Menu (Hambúrguer) no topo esquerdo */
+/* Menu Hambúrguer (Acesso às notas) */
 .sidebar-toggle {
     position: fixed;
     top: 20px;
     left: 20px;
-    color: #1e90ff;
+    color: #1e90ff; /* Azul para destacar o menu */
     cursor: pointer;
     z-index: 100;
 }
+
+/* Ajuste para listas não ficarem estranhas justificadas */
+.content ul, .content ol {
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
 }
