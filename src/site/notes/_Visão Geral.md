@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/visao-geral/","title":"Sobre o meu Portfólio","tags":["gardenEntry"]}
+{"dg-publish":true,"permalink":"/visao-geral/","tags":["gardenEntry"]}
 ---
 
 # Documentando o Processo
