@@ -1,62 +1,72 @@
-/* ===== Paleta base ===== */
+/* =========================
+   PALETA BASE (ROXO OBSIDIAN)
+========================= */
 :root {
-  --purple-main: #a855f7;   /* Roxo principal */
-  --purple-soft: #c084fc;  /* Roxo suave */
+  --accent: #a855f7;       /* roxo principal */
+  --accent-soft: #c084fc;  /* roxo claro */
+  --text-main: #ffffff;   /* texto normal */
 }
 
-/* ===== Títulos ===== */
-.markdown-preview-view h1,
-.markdown-preview-view h2,
-.markdown-preview-view h3,
-.markdown-preview-view h4 {
-  color: var(--purple-main);
+/* =========================
+   TÍTULO "MEU OBSIDIAN"
+========================= */
+.site-title,
+.site-title a {
+  color: var(--accent) !important;
 }
 
-/* ===== Links ===== */
-.markdown-preview-view a {
-  color: var(--purple-soft);
-  text-decoration: none;
+/* =========================
+   TEXTO DO CONTEÚDO
+========================= */
+main,
+article,
+.content,
+.markdown-preview-view,
+p,
+li {
+  color: var(--text-main) !important;
 }
 
-.markdown-preview-view a:hover {
-  text-decoration: underline;
+/* =========================
+   TÍTULOS DO CONTEÚDO
+========================= */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent) !important;
 }
 
-/* ===== Sidebar links ===== */
-.filetree a,
-.nav-folder-title,
-.nav-file-title {
-  color: #d4d4d4;
+/* =========================
+   LINKS (CONTEÚDO + SIDEBAR)
+========================= */
+a {
+  color: var(--accent) !important;
 }
 
-.nav-file-title.is-active {
-  color: var(--purple-main);
-  font-weight: 600;
+a:hover {
+  color: var(--accent-soft) !important;
 }
 
-/* ===== Título do site (Meu Obsidian) ===== */
-.site-title {
-  color: var(--purple-main) !important;
+/* =========================
+   SIDEBAR — REMOVER AMARELO
+========================= */
+.sidebar a,
+.sidebar-item,
+.sidebar li {
+  color: #e5e7eb !important; /* cinza claro */
 }
 
-/* ===== Botão Hambúrguer ===== */
-.hamburger {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 9999;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #a855f7;
-  background: none;
-  border: none;
+/* Item ativo / selecionado */
+.sidebar a.active,
+.sidebar a:hover,
+.sidebar-item:hover {
+  color: var(--accent) !important;
+  background: rgba(168, 85, 247, 0.15) !important;
 }
 
-/* ===== Sidebar ===== */
-.sidebar {
-  transition: transform 0.3s ease;
-}
-
-.sidebar.closed {
-  transform: translateX(-100%);
+/* =========================
+   REMOVER QUALQUER RESTO DE AMARELO
+========================= */
+[style*="yellow"],
+[style*="#facc15"],
+[style*="#fde047"] {
+  color: var(--accent) !important;
 }
