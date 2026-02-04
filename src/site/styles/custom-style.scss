@@ -38,3 +38,25 @@
 .site-title {
   color: var(--purple-main) !important;
 }
+
+/* ===== Botão Hambúrguer ===== */
+.hamburger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #a855f7;
+  background: none;
+  border: none;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  transition: transform 0.3s ease;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
