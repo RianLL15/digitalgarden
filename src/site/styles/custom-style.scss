@@ -1,1 +1,40 @@
+/* ===== Paleta base ===== */
+:root {
+  --purple-main: #a855f7;   /* Roxo principal */
+  --purple-soft: #c084fc;  /* Roxo suave */
+}
 
+/* ===== Títulos ===== */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4 {
+  color: var(--purple-main);
+}
+
+/* ===== Links ===== */
+.markdown-preview-view a {
+  color: var(--purple-soft);
+  text-decoration: none;
+}
+
+.markdown-preview-view a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Sidebar links ===== */
+.filetree a,
+.nav-folder-title,
+.nav-file-title {
+  color: #d4d4d4;
+}
+
+.nav-file-title.is-active {
+  color: var(--purple-main);
+  font-weight: 600;
+}
+
+/* ===== Título do site (Meu Obsidian) ===== */
+.site-title {
+  color: var(--purple-main) !important;
+}
