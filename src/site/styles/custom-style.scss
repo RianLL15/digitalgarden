@@ -70,3 +70,7 @@ a:hover {
 [style*="#fde047"] {
   color: var(--accent) !important;
 }
+
+.nav-file.is-active > .nav-file-title::before {
+  border-left-color: currentColor;
+}
