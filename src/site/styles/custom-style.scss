@@ -5,6 +5,9 @@
   --accent: #a855f7;       /* roxo principal */
   --accent-soft: #c084fc;  /* roxo claro */
   --text-main: #ffffff;   /* texto normal */
+   --highlight: var(--accent) !important;
+  --secondary: var(--accent) !important;
+  --tertiary: var(--accent) !important;
 }
 
 /* =========================
@@ -74,6 +77,8 @@ a:hover {
 /* =========================
    TRAÇO DO ITEM ATIVO (ROXO)
 ========================= */
-.sidebar a.active {
-  border-left: 3px solid var(--accent) !important;
+/* Indicador ativo do menu lateral */
+.sidebar *::before {
+  border-left-color: var(--accent) !important;
+  background-color: var(--accent) !important;
 }
