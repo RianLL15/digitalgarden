@@ -71,6 +71,9 @@ a:hover {
   color: var(--accent) !important;
 }
 
-.nav-file.is-active > .nav-file-title::before {
-  border-left-color: currentColor;
+/* =========================
+   TRAÇO DO ITEM ATIVO (ROXO)
+========================= */
+.sidebar a.active {
+  border-left: 3px solid var(--accent) !important;
 }
