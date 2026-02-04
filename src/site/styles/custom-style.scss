@@ -28,10 +28,18 @@ li {
 }
 
 /* =========================
-   TÍTULOS DO CONTEÚDO
+   TÍTULOS COM DEGRADÊ ROXO SUAVE
 ========================= */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--accent) !important;
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6 {
+  background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
 }
 
 /* =========================
