@@ -2,19 +2,32 @@
    PALETA BASE (ROXO OBSIDIAN)
 ========================= */
 :root {
-  --accent: #9f7aea;        /* roxo elegante */
+  --accent: #9f7aea;        /* roxo mais elegante */
   --accent-soft: #c4b5fd;   /* roxo pastel */
   --accent-muted: #7c6fd6;  /* roxo contido */
-  --text-main: #ffffff;    /* texto branco */
+  --text-main: #ffffff;
 }
 
+
 /* =========================
-   TÍTULO DO SITE (OBSIDIAN)
+   TÍTULO "OBSIDIAN STUDY NOTES"
 ========================= */
 .site-title,
 .site-title a {
   color: var(--accent) !important;
 }
+
+/* Linha maior abaixo do título */
+.site-title::after {
+  content: "";
+  display: block;
+  width: 120px;          /* tamanho da linha */
+  height: 3px;           /* espessura */
+  margin-top: 0.4rem;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
 
 /* =========================
    TEXTO DO CONTEÚDO
@@ -28,8 +41,9 @@ li {
   color: var(--text-main) !important;
 }
 
+
 /* =========================
-   TÍTULOS — DEGRADÊ ROXO SUAVE
+   TÍTULOS COM DEGRADÊ ROXO SUAVE
 ========================= */
 .page-content h1,
 .page-content h2,
@@ -48,77 +62,47 @@ li {
   color: transparent !important;
 }
 
-/* =========================
-   TÍTULO PRINCIPAL (HOME)
-========================= */
-.markdown-preview-view h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 1.8rem;
-  letter-spacing: 0.02em;
-}
-
-/* Linha sutil abaixo do H1 */
-.markdown-preview-view h1::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--accent),
-    var(--accent-soft)
-  );
-  margin-top: 0.6rem;
-  border-radius: 2px;
-}
 
 /* =========================
-   TEXTO INTRODUTÓRIO (PREFÁCIO)
+   REMOVER LINHA DECORATIVA ANTES DO TÍTULO
+   (ex: "Documentando o Processo")
 ========================= */
-.markdown-preview-view h1 + p {
-  font-size: 1.05rem;
-  color: #f3f4f6;
-  padding-left: 1rem;
-  border-left: 3px solid var(--accent-soft);
+.page-content h1::before,
+.page-content h2::before {
+  display: none !important;
+  content: none !important;
 }
 
-/* =========================
-   PARÁGRAFOS — LEGIBILIDADE
-========================= */
-.markdown-preview-view p {
-  line-height: 1.75;
-  margin-bottom: 1.4rem;
-  max-width: 72ch;
-}
 
 /* =========================
    LINKS (CONTEÚDO + SIDEBAR)
 ========================= */
 a {
-  color: var(--accent-soft) !important;
-}
-
-a:hover {
   color: var(--accent) !important;
 }
 
+a:hover {
+  color: var(--accent-soft) !important;
+}
+
+
 /* =========================
-   SIDEBAR — LIMPA E SÓBRIA
+   SIDEBAR — REMOVER AMARELO
 ========================= */
 .sidebar a,
 .sidebar-item,
 .sidebar li {
-  color: #d1d5db !important;
+  color: #e5e7eb !important; /* cinza claro */
 }
 
-/* Item ativo / hover */
+/* Item ativo / selecionado */
 .sidebar a.active,
 .sidebar a:hover,
 .sidebar-item:hover {
-  color: var(--accent-soft) !important;
-  background: rgba(159, 122, 234, 0.12) !important;
+  color: var(--accent) !important;
+  background: rgba(168, 85, 247, 0.15) !important;
 }
+
 
 /* =========================
    REMOVER QUALQUER RESTO DE AMARELO
@@ -129,8 +113,9 @@ a:hover {
   color: var(--accent) !important;
 }
 
+
 /* =========================
-   CENTRALIZAR CONTEÚDO — QUARTZ / DIGITAL GARDEN
+   CENTRALIZAR CONTEÚDO — DIGITAL GARDEN / QUARTZ
 ========================= */
 .page-content {
   max-width: 820px;
@@ -138,4 +123,21 @@ a:hover {
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* manter largura correta dos elementos */
+.page-content > * {
+  width: 100%;
+}
+
+
+/* =========================
+   TEXTO JUSTIFICADO (SEM MUDAR ESTILO)
+========================= */
+.page-content p {
+  text-align: justify;
 }
