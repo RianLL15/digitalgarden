@@ -31,6 +31,14 @@ body {
   border-right: 1px solid var(--border-soft);
 }
 
+/* =========================
+   SIDEBAR — LINKS
+========================= */
+.sidebar a,
+.sidebar li {
+  color: #e5e7eb !important;
+}
+
 /* Pastas e arquivos */
 .nav-file-title,
 .nav-folder-title {
