@@ -98,33 +98,45 @@ a:hover {
 
 
 /* =========================
-   ITEM ATIVO / SELECIONADO
-   (SUBSTITUI BARRA AMARELA)
+   TREE / SIDEBAR — REMOVER BARRA AMARELA DEFINITIVAMENTE
 ========================= */
-.sidebar a.active,
-.sidebar-item.active {
-  color: var(--accent) !important;
+
+/* Arquivo ou pasta ativa */
+.nav-file.is-active,
+.nav-folder.is-active,
+.tree-item.is-active,
+.sidebar .is-active {
   background: rgba(159, 122, 234, 0.12) !important;
   border-left: 3px solid var(--accent-muted) !important;
 }
 
-.sidebar a:hover,
-.sidebar-item:hover {
-  color: var(--accent-soft) !important;
+/* Remove qualquer ::before amarelo */
+.nav-file.is-active::before,
+.nav-folder.is-active::before,
+.tree-item.is-active::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remove bordas amarelas herdadas */
+.nav-file,
+.nav-folder,
+.tree-item {
+  border-left-color: var(--accent-muted) !important;
+}
+
+/* Hover consistente com o tema */
+.nav-file:hover,
+.nav-folder:hover,
+.tree-item:hover {
   background: rgba(159, 122, 234, 0.08) !important;
   border-left: 3px solid var(--accent-soft) !important;
 }
 
-
-/* =========================
-   REMOVER QUALQUER RESTO DE AMARELO
-========================= */
-[style*="yellow"],
-[style*="#facc15"],
-[style*="#fde047"] {
-  color: var(--accent) !important;
-  border-color: var(--accent) !important;
-  background-color: transparent !important;
+/* Forçar remoção de amarelo hardcoded */
+[style*="border-left: 3px solid yellow"],
+[style*="border-left-color: yellow"] {
+  border-left-color: var(--accent-muted) !important;
 }
 
 
