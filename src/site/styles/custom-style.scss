@@ -98,47 +98,51 @@ a:hover {
 
 
 /* =========================
-   TREE / SIDEBAR — REMOVER BARRA AMARELA DEFINITIVAMENTE
+   QUARTZ / DIGITAL GARDEN
+   REMOVER BARRA AMARELA DA SIDEBAR (DE VEZ)
 ========================= */
 
-/* Arquivo ou pasta ativa */
+/* Arquivo ativo */
 .nav-file.is-active,
 .nav-folder.is-active,
-.tree-item.is-active,
-.sidebar .is-active {
+.tree-item.is-active {
   background: rgba(159, 122, 234, 0.12) !important;
-  border-left: 3px solid var(--accent-muted) !important;
+  border-inline-start: 3px solid var(--accent-muted) !important;
 }
 
-/* Remove qualquer ::before amarelo */
-.nav-file.is-active::before,
-.nav-folder.is-active::before,
-.tree-item.is-active::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Remove bordas amarelas herdadas */
-.nav-file,
-.nav-folder,
-.tree-item {
-  border-left-color: var(--accent-muted) !important;
-}
-
-/* Hover consistente com o tema */
+/* Hover */
 .nav-file:hover,
 .nav-folder:hover,
 .tree-item:hover {
   background: rgba(159, 122, 234, 0.08) !important;
-  border-left: 3px solid var(--accent-soft) !important;
+  border-inline-start: 3px solid var(--accent-soft) !important;
 }
 
-/* Forçar remoção de amarelo hardcoded */
-[style*="border-left: 3px solid yellow"],
-[style*="border-left-color: yellow"] {
-  border-left-color: var(--accent-muted) !important;
+/* Remove completamente indicadores antigos (::before) */
+.nav-file::before,
+.nav-folder::before,
+.tree-item::before {
+  content: none !important;
+  display: none !important;
 }
 
+/* Neutraliza QUALQUER amarelo herdado */
+.nav-file,
+.nav-folder,
+.tree-item {
+  --interactive-accent: var(--accent-muted) !important;
+  --background-modifier-border: transparent !important;
+  border-inline-start-color: var(--accent-muted) !important;
+}
+
+/* Fallback para amarelo hardcoded */
+[style*="yellow"],
+[style*="#facc15"],
+[style*="#fde047"] {
+  border-color: var(--accent-muted) !important;
+  background: transparent !important;
+  color: var(--accent) !important;
+}
 
 /* =========================
    CENTRALIZAR CONTEÚDO
