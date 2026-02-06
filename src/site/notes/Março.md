@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/marco/","hide":true}
+{"dg-publish":true,"permalink":"/marco/"}
 ---
 
 # Março
