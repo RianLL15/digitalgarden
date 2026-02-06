@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/primeiro-ano-primeiro-semestre/"}
+{"dg-publish":true,"permalink":"/primeiro-ano-primeiro-semestre/","hide":true}
 ---
 
 # Primeiro Semestre
