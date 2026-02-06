@@ -191,3 +191,46 @@ a:active,
   border-bottom: none !important;
   box-shadow: none !important;
 }
+
+/* ================================
+   🔗 FORÇAR LINKS INTERNOS (UI + ABAS) PARA ROXO
+   ================================ */
+
+/* Preview / leitura */
+.markdown-preview-view a,
+.markdown-preview-view a.internal-link,
+.markdown-preview-view a.external-link {
+  color: var(--link-purple) !important;
+}
+
+/* Editor (modo edição) */
+.cm-hmd-internal-link,
+.cm-link,
+.cm-url {
+  color: var(--link-purple) !important;
+}
+
+/* Hover geral */
+.markdown-preview-view a:hover,
+.cm-hmd-internal-link:hover,
+.cm-link:hover {
+  color: var(--link-purple-hover) !important;
+}
+
+/* Backlinks */
+.backlink,
+.backlink a {
+  color: var(--link-purple) !important;
+}
+
+/* Links de abas / navegação */
+.workspace-tab-header a,
+.nav-link,
+.view-header-title-container a {
+  color: var(--link-purple) !important;
+}
+
+.workspace-tab-header a:hover,
+.nav-link:hover {
+  color: var(--link-purple-hover) !important;
+}
