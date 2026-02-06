@@ -176,25 +176,31 @@ h2, h3 {
 }
 
 /* ================================
-   🚫 REMOVER SUBLINHADO PADRÃO DOS LINKS
-   (Minimal / Digital Garden fix)
+   🚫 REMOVER SUBLINHADO TOTAL DOS LINKS
+   (normal + hover + focus)
    ================================ */
 a,
+a:hover,
+a:focus,
+a:active,
 .internal-link,
-.external-link {
+.internal-link:hover,
+.external-link,
+.external-link:hover {
   text-decoration: none !important;
   border-bottom: none !important;
   background-image: none !important;
+  box-shadow: none !important;
 }
 
-/* garantir que NADA apareça sem hover */
+/* matar qualquer underline feito por pseudo-elementos */
 a::after,
-.internal-link::after {
-  opacity: 1;
+a::before,
+.internal-link::after,
+.internal-link::before {
+  content: none !important;
+  display: none !important;
 }
 
-/* underline SOMENTE no hover (degrade elegante) */
-a:not(:hover)::after,
-.internal-link:not(:hover)::after {
   transform: scaleX(0);
 }
