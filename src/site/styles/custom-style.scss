@@ -230,6 +230,45 @@ a:active,
   color: var(--link-purple) !important;
 }
 
+/* ================================
+   📖 TEXTO INTRODUTÓRIO — CONFORTO DE LEITURA
+   ================================ */
+
+/* Parágrafos mais respiráveis */
+.page-content p {
+  line-height: 1.85;
+  letter-spacing: 0.2px;
+  margin-bottom: 1.2rem;
+}
+
+/* Blocos de separação (--- no markdown) */
+.page-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(159,122,234,0.4),
+    transparent
+  );
+  margin: 2rem 0;
+}
+
+/* Subtítulos da introdução */
+.page-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Emojis mais elegantes no título */
+.page-content h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
 .workspace-tab-header a:hover,
 .nav-link:hover {
   color: var(--link-purple-hover) !important;
