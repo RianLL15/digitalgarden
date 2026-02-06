@@ -176,8 +176,7 @@ h2, h3 {
 }
 
 /* ================================
-   🚫 REMOVER SUBLINHADO TOTAL DOS LINKS
-   (normal + hover + focus)
+   🚫 LINKS SEM SUBLINHADO (DEFINITIVO)
    ================================ */
 a,
 a:hover,
@@ -193,7 +192,7 @@ a:active,
   box-shadow: none !important;
 }
 
-/* matar qualquer underline feito por pseudo-elementos */
+/* desativar underline animado por pseudo-elemento */
 a::after,
 a::before,
 .internal-link::after,
