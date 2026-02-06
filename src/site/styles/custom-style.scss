@@ -174,29 +174,3 @@ h2, h3 {
   background-color: rgba(159,122,234,0.3);
   border-radius: 4px;
 }
-
-/* ================================
-   🚫 LINKS SEM SUBLINHADO (DEFINITIVO)
-   ================================ */
-a,
-a:hover,
-a:focus,
-a:active,
-.internal-link,
-.internal-link:hover,
-.external-link,
-.external-link:hover {
-  text-decoration: none !important;
-  border-bottom: none !important;
-  background-image: none !important;
-  box-shadow: none !important;
-}
-
-/* desativar underline animado por pseudo-elemento */
-a::after,
-a::before,
-.internal-link::after,
-.internal-link::before {
-  content: none !important;
-  display: none !important;
-}
