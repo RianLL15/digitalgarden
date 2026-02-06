@@ -6,6 +6,16 @@
 :root {
   --accent-purple: #9f7aea;
   --accent-purple-soft: rgba(159, 122, 234, 0.12);
+
+  /* Links (roxo natural, não vivo) */
+  --link-purple: #b8a3e6;
+  --link-purple-hover: #d3c6f5;
+  --link-gradient: linear-gradient(
+    90deg,
+    #9f7aea,
+    #b8a3e6
+  );
+
   --bg-main: #1e1e1e;
   --bg-sidebar: #191919;
   --bg-hover: rgba(255, 255, 255, 0.04);
@@ -53,7 +63,7 @@ body {
   color: var(--text-main);
 }
 
-/* Nota ativa (barra lateral estilo Lemon) */
+/* Nota ativa */
 .nav-file.is-active > .nav-file-title {
   background-color: var(--accent-purple-soft);
   color: var(--accent-purple);
@@ -80,7 +90,45 @@ body {
   line-height: 1.7;
 }
 
-/* Título principal */
+/* ================================
+   🔗 LINKS (roxo natural + degrade)
+   ================================ */
+a,
+.internal-link {
+  color: var(--link-purple);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+.internal-link:hover {
+  color: var(--link-purple-hover);
+}
+
+/* Underline em degrade (hover) */
+a::after,
+.internal-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--link-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+a:hover::after,
+.internal-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ================================
+   🔠 Títulos
+   ================================ */
 .markdown-preview-view h1,
 .markdown-source-view h1 {
   font-size: 2rem;
@@ -88,18 +136,12 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Subtítulos */
 h2, h3 {
   color: #d6c7ff;
 }
 
-/* Parágrafos */
-p {
-  color: var(--text-main);
-}
-
 /* ================================
-   📏 Largura do conteúdo (estilo Lemon)
+   📏 Largura do conteúdo (Lemon)
    ================================ */
 .markdown-preview-view .markdown-preview-sizer,
 .markdown-source-view .cm-sizer {
@@ -108,7 +150,7 @@ p {
 }
 
 /* ================================
-   ✨ Destaques e seleção
+   ✨ Seleção
    ================================ */
 ::selection {
   background: var(--accent-purple-soft);
