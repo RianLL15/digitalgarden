@@ -13,7 +13,7 @@ Mais do que apresentar resultados finais, este portfólio atua como um **registr
 
 ---
 
-### ✍️ Por que registrar?
+## ✍️ Por que registrar?
 
 As anotações surgem a partir de uma necessidade clara: **mudar meu jeito de aprender**.  
 A mente humana é falha, e confiar apenas na memória torna o processo mais lento e impreciso. Ao registrar os conteúdos, consigo transformar temas complexos em estruturas mais claras, identificar com precisão onde estão minhas dificuldades e agir de forma mais direta sobre elas.
@@ -23,7 +23,7 @@ Isso torna o aprendizado mais direcionado, consciente e eficiente  entender o pr
 
 ---
 
-### 🔍 O que você encontra aqui
+## 🔍 O que você encontra aqui
 
 Ao longo do tempo, registro:
 - anotações de aula  
