@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/abril/aula-dia-01/","hide":true}
+{"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/abril/aula-dia-01/"}
 ---
 
 Dia 12/03
