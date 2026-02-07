@@ -3,14 +3,11 @@
 ---
 
 <style>
-  /* Esconde apenas o título gerado automaticamente pelo Digital Garden no topo */
-  .title, .page-title, .header-title {
-    display: none !important;
-  }
-  
-  /* Garante que o seu título manual (Obsidian Study Notes) continue aparecendo */
-  h1 {
-    display: block !important;
+  /* Esconde especificamente o título automático gerado pelo Digital Garden no topo da página */
+  header h1, 
+  .content-header h1,
+  main > h1:first-of-type {
+    display: none !important;P
   }
 </style>
 ---
