@@ -3,4 +3,4 @@
 ---
 
 ## 🗒️ Anotações
-1. [[Universidade/Primeiro ano/Primeiro Semestre/Março/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
+1. [[Universidade/Primeiro ano/Primeiro Semestre/M03 - Março/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
