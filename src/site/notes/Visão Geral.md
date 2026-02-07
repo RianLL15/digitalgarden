@@ -2,7 +2,6 @@
 {"dg-publish":true,"permalink":"/visao-geral/","tags":["gardenEntry"]}
 ---
 
-
 # 📃**Documentando o Processo**
 
 Este portfólio de anotações acadêmicas foi criado com o objetivo de registrar e acompanhar meu processo de evolução ao longo da faculdade.  
