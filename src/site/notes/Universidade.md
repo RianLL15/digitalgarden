@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/","title":"Universidade"}
+{"dg-publish":true,"permalink":"/universidade/","title":"Universidade","tags":["gardenEntry"]}
 ---
 
 
