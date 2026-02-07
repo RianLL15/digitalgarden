@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/"}
+{"dg-publish":true,"permalink":"/universidade/","dgShowInlineTitle":true}
 ---
 
 ---
