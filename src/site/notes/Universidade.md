@@ -2,9 +2,6 @@
 {"dg-publish":true,"permalink":"/universidade/"}
 ---
 
-
-# Universidade
-
 ## 📘 Primeiro Ano
 - [[Primeiro Ano - Primeiro Semestre\|Primeiro Ano - Primeiro Semestre]]
 - [[Primeiro Ano - Segundo Semestre\|Primeiro Ano - Segundo Semestre]]
