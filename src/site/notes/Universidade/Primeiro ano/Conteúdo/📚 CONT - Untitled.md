@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/primeiro-ano/conteudo/cont-untitled/"}
+{"dg-publish":true,"permalink":"/universidade/primeiro-ano/conteudo/cont-untitled/","hide":true}
 ---
 
 
