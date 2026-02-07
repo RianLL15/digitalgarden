@@ -273,18 +273,3 @@ a:active,
 .nav-link:hover {
   color: var(--link-purple-hover) !important;
 }
-
-/* ================================
-   📁 OCULTAR PASTAS DA SIDEBAR
-   (mantém arquivos acessíveis por links)
-   ================================ */
-
-/* Esconde pastas */
-.nav-folder {
-  display: none !important;
-}
-
-/* Remove espaço vazio deixado pelas pastas */
-.nav-folder-children {
-  display: none !important;
-}
