@@ -74,8 +74,18 @@
                 {%endif%}
             </div>
             <div class="folder" x-data="{isOpen: true}">
+               {# Root notes first (ex.: Visão Geral, Universidade note) #}
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% if fileOrFolder.isNote %}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% endif %}
+               {%- endfor -%}
+
+               {# Then folders (ex.: Universidade folder with internal structure) #}
+               {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                  {% if fileOrFolder.isFolder %}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% endif %}
                {%- endfor -%}
             </div>
          </div>
