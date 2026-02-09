@@ -74,16 +74,33 @@
                 {%endif%}
             </div>
             <div class="folder" x-data="{isOpen: true}">
-               {# Root notes first (ex.: Visão Geral, Universidade note) #}
+               {# 1) Visão Geral #}
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {% if fileOrFolder.isNote %}
+                  {% if fileOrFolder.isNote and fileOrFolder.name == 'Visão Geral' %}
                     {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
                   {% endif %}
                {%- endfor -%}
 
-               {# Then folders (ex.: Universidade folder with internal structure) #}
+               {# 2) Universidade (nota) #}
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {% if fileOrFolder.isFolder %}
+                  {% if fileOrFolder.isNote and fileOrFolder.name == 'Universidade' %}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% endif %}
+               {%- endfor -%}
+
+               {# 3) Pasta Universidade (com elementos internos normais) #}
+               {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                  {% if fileOrFolder.isFolder and fileOrFolderName == 'Universidade' %}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% endif %}
+               {%- endfor -%}
+
+               {# Itens restantes sem duplicar #}
+               {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                  {% if fileOrFolder.isNote and fileOrFolder.name != 'Visão Geral' and fileOrFolder.name != 'Universidade' %}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% endif %}
+                  {% if fileOrFolder.isFolder and fileOrFolderName != 'Universidade' %}
                     {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
                   {% endif %}
                {%- endfor -%}
