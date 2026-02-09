@@ -22,8 +22,8 @@
     {% endmacro %}
     
     <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
-            x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false;"
-            x-data="{isDesktop: true, showFilesMobile: false}">
+            x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false; if (!isDesktop) { showDesktopTree = false; }"
+            x-data="{isDesktop: true, showFilesMobile: false, showDesktopTree: false}">
 
         <div x-show.important="!isDesktop" style="display: none;">
             {%include "components/filetreeNavbar.njk"%}
@@ -36,16 +36,25 @@
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}
-         <a href="/" style="text-decoration: none;">
-               <h1 style="text-align:center;">{{meta.siteName}}</h1>
-         </a>
+
+        <div class="filetree-topbar">
+            <button class="filetree-menu-toggle align-icon" @click.stop="showDesktopTree = !showDesktopTree" aria-label="Abrir menu lateral">
+                <i data-lucide="menu"></i>
+            </button>
+            <a href="/" style="text-decoration: none;">
+                <h1 style="text-align:center;">{{meta.siteName}}</h1>
+            </a>
+            {% if settings.dgEnableSearch === true%}
+                <div class="filetree-topbar-search">
+                    {% include "components/searchButton.njk" %}
+                </div>
+            {%endif%}
+         </div>
+
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
-        {% if settings.dgEnableSearch === true%}
-            {% include "components/searchButton.njk" %}
-        {%endif%}
-         <div class="folder" x-data="{isOpen: true}">
+       <div class="folder filetree-drawer" x-data="{isOpen: true}" x-show="!isDesktop || showDesktopTree" x-transition.opacity style="display: none;">
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
                {%- endfor -%}
