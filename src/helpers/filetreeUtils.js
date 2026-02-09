@@ -10,18 +10,16 @@ const naturalCompare = (a, b) => {
   const maxLen = Math.max(aChunks.length, bChunks.length);
 
   for (let i = 0; i < maxLen; i++) {
-    const aChunk = aChunks[i] || '';
-    const bChunk = bChunks[i] || '';
+    const aChunk = aChunks[i] || "";
+    const bChunk = bChunks[i] || "";
 
     const aIsNum = /^\d+$/.test(aChunk);
     const bIsNum = /^\d+$/.test(bChunk);
 
     if (aIsNum && bIsNum) {
-      // Compare as numbers
       const diff = parseInt(aChunk, 10) - parseInt(bChunk, 10);
       if (diff !== 0) return diff;
     } else {
-      // Compare as strings
       if (aChunk < bChunk) return -1;
       if (aChunk > bChunk) return 1;
     }
@@ -30,50 +28,77 @@ const naturalCompare = (a, b) => {
   return 0;
 };
 
+const MONTH_ORDER = {
+  janeiro: 1,
+  fevereiro: 2,
+  marco: 3,
+  abril: 4,
+  maio: 5,
+  junho: 6,
+  julho: 7,
+  agosto: 8,
+  setembro: 9,
+  outubro: 10,
+  novembro: 11,
+  dezembro: 12,
+};
+
+const normalizeFolderLabel = (value) => value.replace(/^M\d{2}\s*-\s*/i, "").trim();
+
+const parseMonthRank = (value) => {
+  const normalized = normalizeFolderLabel(value)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+  return MONTH_ORDER[normalized] || null;
+};
+
 const sortTree = (unsorted) => {
-  //Sort by folder before file, then by name
+  // Sort by folder before file, then by name
   const orderedTree = Object.keys(unsorted)
     .sort((a, b) => {
+      const aPinned = unsorted[a].pinned || false;
+      const bPinned = unsorted[b].pinned || false;
+      if (aPinned !== bPinned) return aPinned ? -1 : 1;
 
-      let a_pinned = unsorted[a].pinned || false;
-      let b_pinned = unsorted[b].pinned || false;
-      if (a_pinned != b_pinned) {
-        if (a_pinned) {
-          return -1;
-        } else {
-          return 1;
+      const aIsNote = a.indexOf(".md") > -1;
+      const bIsNote = b.indexOf(".md") > -1;
+
+      if (aIsNote && !bIsNote) return 1;
+      if (!aIsNote && bIsNote) return -1;
+
+      if (!aIsNote && !bIsNote) {
+        const aMonth = parseMonthRank(a);
+        const bMonth = parseMonthRank(b);
+
+        // If both are month folders, enforce calendar order
+        if (aMonth !== null && bMonth !== null) {
+          return aMonth - bMonth;
         }
-      }
 
-      const a_is_note = a.indexOf(".md") > -1;
-      const b_is_note = b.indexOf(".md") > -1;
-
-      if (a_is_note && !b_is_note) {
-        return 1;
-      }
-
-      if (!a_is_note && b_is_note) {
-        return -1;
+        // For folder display/sort, ignore Mxx - prefix
+        return naturalCompare(normalizeFolderLabel(a), normalizeFolderLabel(b));
       }
 
       return naturalCompare(a, b);
     })
     .reduce((obj, key) => {
       obj[key] = unsorted[key];
-
       return obj;
     }, {});
 
   for (const key of Object.keys(orderedTree)) {
     if (orderedTree[key].isFolder) {
       orderedTree[key] = sortTree(orderedTree[key]);
+      orderedTree[key].displayName = normalizeFolderLabel(key);
     }
   }
 
   return orderedTree;
 };
 
-function getPermalinkMeta(note, key) {
+function getPermalinkMeta(note) {
   let permalink = "/";
   let parts = note.filePathStem.split("/");
   let name = parts[parts.length - 1];
@@ -87,15 +112,13 @@ function getPermalinkMeta(note, key) {
     }
     if (note.data.tags && note.data.tags.indexOf("gardenEntry") != -1) {
       permalink = "/";
-    }    
+    }
     if (note.data.title) {
       name = note.data.title;
     }
     if (note.data.noteIcon) {
       noteIcon = note.data.noteIcon;
     }
-    // Reason for adding the hide flag instead of removing completely from file tree is to
-    // allow users to use the filetree data elsewhere without the fear of losing any data.
     if (note.data.hide) {
       hide = note.data.hide;
     }
@@ -105,24 +128,22 @@ function getPermalinkMeta(note, key) {
     if (note.data["dg-path"]) {
       folders = note.data["dg-path"].split("/");
     } else {
-      folders = note.filePathStem
-        .split("notes/")[1]
-        .split("/");
+      folders = note.filePathStem.split("notes/")[1].split("/");
     }
-    folders[folders.length - 1]+= ".md";
+    folders[folders.length - 1] += ".md";
   } catch {
-    //ignore
+    // ignore
   }
 
   return [{ permalink, name, noteIcon, hide, pinned }, folders];
 }
 
 function assignNested(obj, keyPath, value) {
-  lastKeyIndex = keyPath.length - 1;
-  for (var i = 0; i < lastKeyIndex; ++i) {
-    key = keyPath[i];
+  const lastKeyIndex = keyPath.length - 1;
+  for (let i = 0; i < lastKeyIndex; ++i) {
+    const key = keyPath[i];
     if (!(key in obj)) {
-      obj[key] = { isFolder: true };
+      obj[key] = { isFolder: true, displayName: normalizeFolderLabel(key) };
     }
     obj = obj[key];
   }
@@ -135,8 +156,7 @@ function getFileTree(data) {
     const [meta, folders] = getPermalinkMeta(note);
     assignNested(tree, folders, { isNote: true, ...meta });
   });
-  const fileTree = sortTree(tree);
-  return fileTree;
+  return sortTree(tree);
 }
 
 exports.getFileTree = getFileTree;

@@ -10,7 +10,7 @@
                     <div class="foldername-wrapper align-icon">
                     <i x-show="isOpen" style="display: none;"  data-lucide="chevron-down"></i>
                     <i x-show="!isOpen"  data-lucide="chevron-right"></i>
-                    <span class="foldername">{{fileOrFolderName}}</span>
+                    <span class="foldername">{{fileOrFolder.displayName or fileOrFolderName}}</span>
                     </div>
                     {% for fileOrFolderName, child in fileOrFolder %}
                         {{menuItem(fileOrFolderName, child, step+1, (currentPath+"/"+fileOrFolderName))}}
