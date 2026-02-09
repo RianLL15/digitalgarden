@@ -425,6 +425,20 @@ main.hide-inline-title > header > h1 {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
-    z-index: 24;
+    z-index: 19;
+  }
+}
+
+@media (min-width: 1001px) {
+  .filetree-topbar > a,
+  .filetree-drawer-header > a {
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .filetree-topbar > a:hover,
+  .filetree-drawer-header > a:hover {
+    border-bottom-color: var(--accent-purple);
   }
 }
