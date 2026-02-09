@@ -366,3 +366,56 @@ main.hide-inline-title > header > h1 {
     margin-right: 20px;
   }
 }
+
+/* Ajustes solicitados: ícone maior + drawer igual referência */
+@media (min-width: 1001px) {
+  .filetree-menu-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .filetree-menu-toggle i,
+  .filetree-menu-toggle svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 2.4;
+  }
+
+  .filetree-drawer {
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    padding: 16px 12px 18px;
+    z-index: 25;
+  }
+
+  .filetree-drawer-header {
+    border-bottom: 1px solid var(--border-soft);
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+  }
+
+  .filetree-drawer-header h2 {
+    margin: 4px 0 12px;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--accent-purple);
+  }
+
+  .filetree-drawer .search-button {
+    width: 100%;
+    margin: 0;
+  }
+
+  body.desktop-drawer-open .content {
+    margin-left: 290px;
+    margin-right: auto;
+  }
+
+  body.desktop-drawer-open .content.canvas-page {
+    margin-left: 290px;
+    margin-right: 20px;
+  }
+}
