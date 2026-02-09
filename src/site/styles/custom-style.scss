@@ -277,3 +277,92 @@ a:active,
 main.hide-inline-title > header > h1 {
   display: none;
 }
+
+/* ================================
+   🧭 FILETREE EM TOPBAR (ESTILO IMG 2)
+   mantendo paleta original da img 1
+   ================================ */
+
+@media (min-width: 1001px) {
+  .filetree-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: var(--dg-navbar-height);
+    justify-content: flex-start;
+    z-index: 20;
+    border-bottom: 1px solid var(--border-soft);
+    background: var(--bg-sidebar);
+  }
+
+  .filetree-sidebar {
+    width: 100%;
+    height: var(--dg-navbar-height);
+    overflow: visible;
+    padding: 0 20px;
+  }
+
+  .filetree-topbar {
+    height: var(--dg-navbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .filetree-topbar h1 {
+    margin: 0 !important;
+    font-size: clamp(1.5rem, 2.2vw, 2.2rem) !important;
+    color: var(--accent-purple);
+  }
+
+  .filetree-menu-toggle {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .filetree-topbar-search {
+    margin-left: auto;
+  }
+
+  .filetree-topbar-search .search-button {
+    margin: 0;
+    width: auto;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0 14px;
+    height: 38px;
+  }
+
+  .filetree-drawer {
+    position: fixed;
+    top: var(--dg-navbar-height);
+    left: 0;
+    width: 270px;
+    height: calc(100vh - var(--dg-navbar-height));
+    overflow-y: auto;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-soft);
+    padding: 14px 12px 18px;
+  }
+
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: calc(var(--dg-navbar-height) + 26px);
+    max-width: min(var(--dg-content-max-width), calc(100vw - 60px));
+  }
+
+  .content.canvas-page {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
