@@ -442,3 +442,35 @@ main.hide-inline-title > header > h1 {
     border-bottom-color: var(--accent-purple);
   }
 }
+
+/* ================================
+   Ajuste final de hover/link (pedido do usuário)
+   ================================ */
+
+/* Remover sublinhado visual de TODOS os links, mantendo cor roxa */
+a::after,
+.internal-link::after {
+  display: none !important;
+}
+
+.notelink a:hover,
+.filename:hover,
+.foldername:hover,
+.markdown-preview-view a:hover,
+.internal-link:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Título do topo com efeito igual referência (linha roxa visível) */
+@media (min-width: 1001px) {
+  .filetree-topbar > a,
+  .filetree-drawer-header > a {
+    border-bottom: 2px solid var(--accent-purple) !important;
+  }
+
+  .filetree-topbar > a:hover,
+  .filetree-drawer-header > a:hover {
+    border-bottom-color: var(--link-purple-hover) !important;
+  }
+}
