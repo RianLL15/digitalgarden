@@ -429,20 +429,6 @@ main.hide-inline-title > header > h1 {
   }
 }
 
-@media (min-width: 1001px) {
-  .filetree-topbar > a,
-  .filetree-drawer-header > a {
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
-  }
-
-  .filetree-topbar > a:hover,
-  .filetree-drawer-header > a:hover {
-    border-bottom-color: var(--accent-purple);
-  }
-}
-
 /* ================================
    Ajuste final de hover/link (pedido do usuário)
    ================================ */
@@ -462,15 +448,31 @@ a::after,
   border-bottom: none !important;
 }
 
-/* Título do topo com efeito igual referência (linha roxa visível) */
+/* Título do topo com efeito animado (surge aos poucos no hover) */
 @media (min-width: 1001px) {
   .filetree-topbar > a,
   .filetree-drawer-header > a {
-    border-bottom: 2px solid var(--accent-purple) !important;
+    position: relative;
+    text-decoration: none !important;
   }
 
-  .filetree-topbar > a:hover,
-  .filetree-drawer-header > a:hover {
-    border-bottom-color: var(--link-purple-hover) !important;
+  .filetree-topbar > a::after,
+  .filetree-drawer-header > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-purple);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+    display: block !important;
+  }
+
+  .filetree-topbar > a:hover::after,
+  .filetree-drawer-header > a:hover::after {
+    transform: scaleX(1);
   }
 }
