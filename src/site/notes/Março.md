@@ -1,5 +1,6 @@
 ---
 {"dg-publish":true,"permalink":"/marco/","title":"Março","hide":true}
+{"dg-publish":true,"permalink":"/marco/","title":"Março","contentClasses":"hide-inline-title","hide":true}
 ---
 
 ---
