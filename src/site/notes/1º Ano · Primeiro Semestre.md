@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/primeiroano/","title":"Primeiro Ano","contentClasses":"hide-inline-title"}
+{"dg-publish":true,"permalink":"/primeiroano/","title":"Primeiro Ano","contentClasses":"hide-inline-title","hide":true}
 ---
 
 ---
