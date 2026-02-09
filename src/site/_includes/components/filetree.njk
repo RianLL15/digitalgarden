@@ -22,7 +22,7 @@
     {% endmacro %}
     
     <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
-            x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false; if (!isDesktop) { showDesktopTree = false; }"
+           x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false; if (!isDesktop) { showDesktopTree = false; document.body.classList.remove('desktop-drawer-open'); }"
             x-data="{isDesktop: true, showFilesMobile: false, showDesktopTree: false}">
 
         <div x-show.important="!isDesktop" style="display: none;">
@@ -38,7 +38,7 @@
         {% endfor %}
 
         <div class="filetree-topbar">
-            <button class="filetree-menu-toggle align-icon" @click.stop="showDesktopTree = !showDesktopTree" aria-label="Abrir menu lateral">
+            <button class="filetree-menu-toggle align-icon" @click.stop="showDesktopTree = !showDesktopTree; document.body.classList.toggle('desktop-drawer-open', showDesktopTree)" aria-label="Abrir menu lateral">
                 <i data-lucide="menu"></i>
             </button>
             <a href="/" style="text-decoration: none;">
@@ -54,11 +54,22 @@
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
-       <div class="folder filetree-drawer" x-data="{isOpen: true}" x-show="!isDesktop || showDesktopTree" x-transition.opacity style="display: none;">
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+        <div class="filetree-drawer" x-show="!isDesktop || showDesktopTree" x-transition.opacity style="display: none;">
+            <div class="filetree-drawer-header">
+                <a href="/" style="text-decoration: none;">
+                    <h2>{{meta.siteName}}</h2>
+                </a>
+                {% if settings.dgEnableSearch === true%}
+                    {% include "components/searchButton.njk" %}
+                {%endif%}
+            </div>
+            <div class="folder" x-data="{isOpen: true}">
+                 {%- for fileOrFolderName, fileOrFolder in filetree -%}
                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
                {%- endfor -%}
-         </div>
+            </div>
+            </div>
       </nav>
       </div>
     </div>
