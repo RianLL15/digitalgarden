@@ -1,7 +1,7 @@
 ---
-{"dg-publish":true,"permalink":"/comandos/","title":"Comandos","hide":true}
+{"dg-publish":true,"permalink":"/comandos/","title":"Comandos"}
 ---
 
 # Título
 
-doknfpodinfaknánánn
+doknfpodinfaknánánn{"dg-publish":true,"permalink":"/universidade/","title":"Universidade","contentClasses":"hide-inline-title"}

@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"permalink":"/marco/","title":"Março","hide":true, "contentClasses":"hide-inline-title"}
+{"dg-publish":true,"permalink":"/marco/","title":"Março","hide":true}
 ---
 
 ---
 
 # 🗒️ Anotações
-1. [[Universidade/Primeiro ano/Primeiro Semestre/M03 - Março/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
-2. [[Universidade/Primeiro ano/Primeiro Semestre/M03 - Março/📅 AULA - Dia 02\|📅 AULA - Dia 02]]
+1. [[Universidade/Primeiro ano/Primeiro Semestre/Março/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
+2. [[Universidade/Primeiro ano/Primeiro Semestre/Março/📅 AULA - Dia 02\|📅 AULA - Dia 02]]

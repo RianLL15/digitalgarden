@@ -5,4 +5,4 @@
 ---
 
 ## 🗒️ Anotações
-1. [[Universidade/Primeiro ano/Primeiro Semestre/M04 - Abril/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
+1. [[Universidade/Primeiro ano/Primeiro Semestre/Abril/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
