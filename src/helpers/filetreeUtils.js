@@ -55,8 +55,13 @@ const parseMonthRank = (value) => {
 };
 
 const sortTree = (unsorted) => {
-  // Sort by folder before file, then by name
-  const orderedTree = Object.keys(unsorted)
+  const meta = {};
+  if (Object.prototype.hasOwnProperty.call(unsorted, "isFolder")) meta.isFolder = unsorted.isFolder;
+  if (Object.prototype.hasOwnProperty.call(unsorted, "displayName")) meta.displayName = unsorted.displayName;
+
+  // Sort only real content keys (ignore metadata keys)
+  const sortedKeys = Object.keys(unsorted)
+    .filter((key) => key !== "isFolder" && key !== "displayName")
     .sort((a, b) => {
       const aPinned = unsorted[a].pinned || false;
       const bPinned = unsorted[b].pinned || false;
@@ -82,13 +87,14 @@ const sortTree = (unsorted) => {
       }
 
       return naturalCompare(a, b);
-    })
-    .reduce((obj, key) => {
-      obj[key] = unsorted[key];
-      return obj;
-    }, {});
+    });
 
-  for (const key of Object.keys(orderedTree)) {
+  const orderedTree = { ...meta };
+  for (const key of sortedKeys) {
+    orderedTree[key] = unsorted[key];
+  }
+
+  for (const key of sortedKeys) {
     if (orderedTree[key].isFolder) {
       orderedTree[key] = sortTree(orderedTree[key]);
       orderedTree[key].displayName = normalizeFolderLabel(key);
