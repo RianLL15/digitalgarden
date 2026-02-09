@@ -274,4 +274,6 @@ a:active,
   color: var(--link-purple-hover) !important;
 }
 
-
+main.hide-inline-title > header > h1 {
+  display: none;
+}
