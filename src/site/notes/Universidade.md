@@ -1,5 +1,8 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/","title":"Universidade","contentClasses":"hide-inline-title"}
+{"dg-publish":true,"permalink":"/universidade/","title":"Universidade"}
+---
+
+
 ---
 
 # 📘 Primeiro Ano 
@@ -8,5 +11,5 @@
 
 ---
 
-## 📘 Segundo Ano 
+# 📘 Segundo Ano 
 - [[Primeiro Ano - Segundo Semestre\|Primeiro Ano - Segundo Semestre]]
