@@ -495,3 +495,21 @@ a::after,
 .filetree-drawer .folder > .notelink {
   margin-left: 10px;
 }
+
+/* Indicador lateral da página ativa no drawer (igual referência) */
+.filetree-drawer .folder > div:not(.filelist) > .notelink,
+.filetree-drawer .filelist .notelink {
+  border-left: 3px solid transparent;
+  margin-left: 8px;
+  padding-left: 10px;
+}
+
+.filetree-drawer .notelink.active-note {
+  border-left-color: var(--accent-purple) !important;
+  background: rgba(159, 122, 234, 0.08);
+  border-radius: 6px;
+}
+
+.filetree-drawer .notelink.active-note .filename {
+  color: var(--text-main) !important;
+}
