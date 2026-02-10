@@ -513,3 +513,13 @@ a::after,
 .filetree-drawer .notelink.active-note .filename {
   color: var(--text-main) !important;
 }
+
+/* Ao abrir o drawer no desktop: esconder e bloquear título + busca da barra superior */
+@media (min-width: 1001px) {
+  body.desktop-drawer-open .filetree-topbar > a,
+  body.desktop-drawer-open .filetree-topbar-search {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
