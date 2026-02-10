@@ -489,7 +489,7 @@ a::after,
 .filetree-section-divider {
   height: 1px;
   margin: 10px 0 8px;
-  background: linear-gradient(90deg, transparent, var(--border-soft), transparent);
+  background: linear-gradient(transparent, var(--border-soft), transparent);
 }
 
 .filetree-drawer .folder > .notelink {
