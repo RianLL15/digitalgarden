@@ -4,6 +4,16 @@ See the README in the plugin repo for information on how to set it up.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/oleeskild/digitalgarden)
 
+## Deploy on GitHub Pages
+This repo also includes a GitHub Actions workflow for GitHub Pages deployment: `.github/workflows/deploy-github-pages.yml`.
+
+### Setup
+1. Push this repository to GitHub.
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. Push to the `main` branch (or run the workflow manually from **Actions**).
+
+After deployment, your site will be available from your GitHub Pages URL.
+
 ---
 ## Docs
 Docs are available at [dg-docs.ole.dev](https://dg-docs.ole.dev/)
