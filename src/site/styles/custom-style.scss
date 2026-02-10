@@ -419,3 +419,151 @@ main.hide-inline-title > header > h1 {
     margin-right: 20px;
   }
 }
+
+@media (min-width: 1001px) {
+  .desktop-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 19;
+  }
+}
+
+/* ================================
+   Ajuste final de hover/link (pedido do usuário)
+   ================================ */
+
+/* Remover sublinhado visual de TODOS os links, mantendo cor roxa */
+a::after,
+.internal-link::after {
+  display: none !important;
+}
+
+.notelink a:hover,
+.filename:hover,
+.foldername:hover,
+.markdown-preview-view a:hover,
+.internal-link:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Título do topo com efeito animado (surge aos poucos no hover) */
+@media (min-width: 1001px) {
+  .filetree-topbar > a,
+  .filetree-drawer-header > a {
+    position: relative;
+    text-decoration: none !important;
+  }
+
+  .filetree-topbar > a::after,
+  .filetree-drawer-header > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-purple);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+    display: block !important;
+  }
+
+  .filetree-topbar > a:hover::after,
+  .filetree-drawer-header > a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Seções no drawer para orientar navegação (como referência visual) */
+.filetree-section-label {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 14px 8px 6px;
+}
+
+.filetree-section-divider {
+  height: 1px;
+  margin: 10px 0 8px;
+  background: linear-gradient(90deg, transparent, var(--border-soft), transparent);
+}
+
+.filetree-drawer .folder > .notelink {
+  margin-left: 10px;
+}
+
+/* Indicador lateral da página ativa no drawer (igual referência) */
+.filetree-drawer .folder > div:not(.filelist) > .notelink,
+.filetree-drawer .filelist .notelink {
+  border-left: 3px solid transparent;
+  margin-left: 8px;
+  padding-left: 10px;
+}
+
+.filetree-drawer .notelink.active-note {
+  border-left-color: var(--accent-purple) !important;
+  background: rgba(159, 122, 234, 0.08);
+  border-radius: 6px;
+}
+
+.filetree-drawer .notelink.active-note .filename {
+  color: var(--text-main) !important;
+}
+
+/* Ao abrir o drawer no desktop: esconder e bloquear título + busca da barra superior */
+@media (min-width: 1001px) {
+  body.desktop-drawer-open .filetree-topbar > a,
+  body.desktop-drawer-open .filetree-topbar-search {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+
+/* Hover no título do drawer em qualquer largura: barrinha surgindo aos poucos abaixo do texto */
+.filetree-drawer-header > a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+.filetree-drawer-header > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  display: block !important;
+}
+
+.filetree-drawer-header > a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Ajuste de espaçamento do efeito no título do drawer */
+.filetree-drawer-header > a {
+  width: fit-content;
+  margin: 0 auto 10px;
+}
+
+.filetree-drawer-header h2 {
+  margin: 4px 0 4px !important;
+}
+
+.filetree-drawer-header > a::after {
+  bottom: 0;
+}
+
+.filetree-drawer-header .search-button {
+  margin-top: 8px !important;
+}
