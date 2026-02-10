@@ -5,5 +5,5 @@
 ---
 
 # 🗒️ Anotações
-1. [[Universidade/Primeiro ano/Primeiro Semestre/Março/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
-2. [[Universidade/Primeiro ano/Primeiro Semestre/Março/📅 AULA - Dia 02\|📅 AULA - Dia 02]]
+1. [[Universidade/Primeiro ano/Primeiro Semestre/Março/Primeira Semana/📅 AULA - Dia 01\|📅 AULA - Dia 01]]
+2. [[Universidade/Primeiro ano/Primeiro Semestre/Março/Primeira Semana/📅 AULA - Dia 02\|📅 AULA - Dia 02]]
