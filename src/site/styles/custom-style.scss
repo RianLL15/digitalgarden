@@ -524,26 +524,3 @@ a::after,
   }
 }
 
-/* Efeito extra no título do drawer: barra vertical sobe no hover */
-@media (min-width: 1001px) {
-  .filetree-drawer-header > a {
-    display: inline-block;
-    padding-left: 10px;
-  }
-
-  .filetree-drawer-header > a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 3px;
-    height: 0;
-    background: var(--accent-purple);
-    border-radius: 3px;
-    transition: height 0.25s ease;
-  }
-
-  .filetree-drawer-header > a:hover::before {
-    height: 100%;
-  }
-}
