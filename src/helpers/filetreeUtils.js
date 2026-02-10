@@ -54,6 +54,15 @@ const normalizeTextToken = (value) => (value || "")
   .replace(/^[^a-z0-9]+/i, "")
   .trim();
 
+
+const isDisciplinasFolder = (key, node, isNote) => {
+  if (isNote) return false;
+
+  const folderName = (node && node.displayName ? node.displayName : key) || "";
+  const normalized = normalizeTextToken(folderName);
+  return normalized.startsWith("disciplina");
+};
+
 const isDisciNote = (key, node, isNote) => {
   if (!isNote) return false;
 
@@ -95,6 +104,10 @@ const sortTree = (unsorted) => {
       if (!aIsNote && bIsNote) return -1;
 
       if (!aIsNote && !bIsNote) {
+        const aDiscFolder = isDisciplinasFolder(a, unsorted[a], aIsNote);
+        const bDiscFolder = isDisciplinasFolder(b, unsorted[b], bIsNote);
+        if (aDiscFolder !== bDiscFolder) return aDiscFolder ? -1 : 1;
+
         const aMonth = parseMonthRank(a);
         const bMonth = parseMonthRank(b);
 
