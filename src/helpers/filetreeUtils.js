@@ -45,6 +45,23 @@ const MONTH_ORDER = {
 
 const normalizeFolderLabel = (value) => value.replace(/^M\d{2}\s*-\s*/i, "").trim();
 
+
+const normalizeTextToken = (value) => (value || "")
+  .toString()
+  .toLowerCase()
+  .normalize("NFD")
+  .replace(/[̀-ͯ]/g, "")
+  .replace(/^[^a-z0-9]+/i, "")
+  .trim();
+
+const isDisciNote = (key, node, isNote) => {
+  if (!isNote) return false;
+
+  const baseName = node && node.name ? node.name : key.replace(/\.md$/i, "");
+  const normalized = normalizeTextToken(baseName);
+  return normalized.startsWith("disci");
+};
+
 const parseMonthRank = (value) => {
   const normalized = normalizeFolderLabel(value)
     .toLowerCase()
@@ -66,13 +83,20 @@ const sortTree = (unsorted) => {
       const aPinned = unsorted[a].pinned || false;
       const bPinned = unsorted[b].pinned || false;
       if (aPinned !== bPinned) return aPinned ? -1 : 1;
+
       const aIsNote = a.indexOf(".md") > -1;
       const bIsNote = b.indexOf(".md") > -1;
+
+      const aDisci = isDisciNote(a, unsorted[a], aIsNote);
+      const bDisci = isDisciNote(b, unsorted[b], bIsNote);
+      if (aDisci !== bDisci) return aDisci ? -1 : 1;
+
       if (aIsNote && !bIsNote) return 1;
       if (!aIsNote && bIsNote) return -1;
       if (!aIsNote && !bIsNote) {
         const aMonth = parseMonthRank(a);
         const bMonth = parseMonthRank(b);
+
         // If both are month folders, enforce calendar order
         if (aMonth !== null && bMonth !== null) {
           return aMonth - bMonth;
@@ -83,7 +107,8 @@ const sortTree = (unsorted) => {
       }
 
       return naturalCompare(a, b);
-    });
+
+      });
   
   const orderedTree = { ...meta };
   for (const key of sortedKeys) {
