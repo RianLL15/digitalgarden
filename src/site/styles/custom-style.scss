@@ -549,3 +549,21 @@ a::after,
 .filetree-drawer-header > a:hover::after {
   transform: scaleX(1);
 }
+
+/* Ajuste de espaçamento do efeito no título do drawer */
+.filetree-drawer-header > a {
+  width: fit-content;
+  margin: 0 auto 10px;
+}
+
+.filetree-drawer-header h2 {
+  margin: 4px 0 4px !important;
+}
+
+.filetree-drawer-header > a::after {
+  bottom: 0;
+}
+
+.filetree-drawer-header .search-button {
+  margin-top: 8px !important;
+}
