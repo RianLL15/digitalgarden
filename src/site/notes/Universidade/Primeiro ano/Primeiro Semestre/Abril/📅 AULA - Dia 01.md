@@ -5,10 +5,10 @@
 Dia 12/03
 
 ## 📘 Disciplina
-- [[Universidade/Primeiro ano/Disciplinas/📘 DISCI - Untitled\|📘 DISCI - Untitled]]
+- [[Universidade/Disciplinas/Primeiro Semestre/📘 DISCI - Untitled\|📘 DISCI - Untitled]]
 
 ## 📚 Conteúdos vistos hoje
-- [[Universidade/Primeiro ano/Conteúdo/📚 CONT - Untitled\|📚 CONT - Untitled]]
+- [[Universidade/Disciplinas/Primeiro Semestre/Contúdo/📚 CONT - Untitled\|📚 CONT - Untitled]]
 
 ## 🧠 O que ficou claro hoje
 
