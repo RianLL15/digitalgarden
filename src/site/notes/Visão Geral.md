@@ -36,7 +36,7 @@ Assim, este espaço se consolida não apenas como um portfólio acadêmico, mas 
 ## 🧭 **Como navegar**
 
 Para uma visão mais ampla e organizada dos conteúdos, o ideal é começar pela seção de **Navegação**, onde os temas, disciplinas e períodos estão conectados de forma estruturada.  
-👉 Recomendo acessar a seção [[Universidade\|Universidade]] para explorar melhor essa organização.
+👉 Recomendo acessar a seção [[N_Universidade\|N_Universidade]] para explorar melhor essa organização.
 
 Caso você esteja buscando algo específico, como uma aula, anotação ou registro pontual, a seção de Arquivos-fonte reúne os materiais de forma mais direta e detalhada.
 
