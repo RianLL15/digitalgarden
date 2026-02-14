@@ -2,10 +2,11 @@
 {"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/marco/primeira-semana/aula-dia-01/"}
 ---
 
+# 📅 AULA - Dia 01
 Dia 12/03
 
-## 📘 Disciplina
-- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/📘 DISCI - Untitled\|📘 DISCI - Untitled]]
+## 📗 Disciplina
+- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/📗 DISCI - Untitled\|📗 DISCI - Untitled]]
 
 ## 📚 Conteúdos vistos hoje
 - [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Contúdo/📚 CONT - Untitled\|📚 CONT - Untitled]]
