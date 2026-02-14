@@ -101,12 +101,12 @@
 
                {# Itens restantes sem duplicar #}
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {% if fileOrFolder.isNote and fileOrFolder.name != 'Visão Geral' and fileOrFolder.name != 'Universidade' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
-                  {% if fileOrFolder.isFolder and fileOrFolderName != 'Universidade' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
+                   {% if fileOrFolder.isNote and fileOrFolder.name != 'Visão Geral' and fileOrFolder.name != 'Universidade' %}
+                     {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                   {% endif %}
+                   {% if fileOrFolder.isFolder and fileOrFolderName != 'Universidade' and fileOrFolderName != 'Navegação' %}
+                     {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                   {% endif %}
                {%- endfor -%}
             </div>
          </div>
