@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/disciplinas/disci-untitled/","title":"Untitled"}
+{"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/disciplinas/disci-untitled/"}
 ---
 
 
