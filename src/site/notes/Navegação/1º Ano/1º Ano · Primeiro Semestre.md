@@ -3,7 +3,7 @@
 ---
 
 ---
-← [[N_Universidade\|Universidade]]
+[[N_Universidade\|← Universidade]]
 
 # 📅 Linha do Tempo do Semestre
 
