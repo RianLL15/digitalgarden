@@ -3,7 +3,7 @@
 ---
 
 ---
- ← [[Navegação/1º Ano/1º Ano · Primeiro Semestre\|1º Ano · Primeiro Semestre]]
+ ← [[N_Universidade\|Universidade]]
 
 # 📅 Linha do Tempo do Semestre
 
