@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/disciplinas/contudo/cont-untitled/","dgShowInlineTitle":"Untitled"}
+{"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/disciplinas/contudo/cont-untitled/"}
 ---
 
 
