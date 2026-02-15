@@ -2,6 +2,8 @@
 {"dg-publish":true,"permalink":"/universidade/primeiro-ano/primeiro-semestre/disciplinas/untitled/disci-untitled/"}
 ---
 
+[[Universidade/Primeiro ano/Primeiro Semestre/Março/Primeira Semana/📅 AULA - Dia 01\|← Voltar para Anotações da Aula]]
+
 # 📗 DISCI - Untitled
 
 
