@@ -99,6 +99,15 @@
                   {% endif %}
                {%- endfor -%}
 
+             <div class="filetree-section-divider"></div>
+
+            <div class="filetree-section-label">Projetos</div>
+               {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                  {% if fileOrFolder.isFolder and fileOrFolderName == 'Projetos' %}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                  {% endif %}
+               {%- endfor -%}
+
                {# Itens restantes sem duplicar #}
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
                    {% if fileOrFolder.isNote and fileOrFolder.name != 'Home' and fileOrFolder.name != 'Universidade' %}
