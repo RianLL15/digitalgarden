@@ -1,131 +1,629 @@
 {% macro menuItem(fileOrFolderName, fileOrFolder, step, currentPath) %}
-    {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
-        <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
-            {%if fileOrFolder.isNote and not fileOrFolder.hide %}
-                <div @click.stop class="notelink {{ 'active-note' if fileOrFolder.permalink === permalink}}">
-                    <a data-note-icon="{{fileOrFolder.noteIcon}}" style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}} </a>
-                </div>
-            {% elif fileOrFolder.isFolder%}
-                {% if not (hideProjetos and fileOrFolderName == 'Projetos') %}
-                <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as({{currentPath | dump}})}" @click.stop="isOpen=!isOpen">
-                    <div class="foldername-wrapper align-icon">
-                    <i x-show="isOpen" style="display: none;"  data-lucide="chevron-down"></i>
-                    <i x-show="!isOpen"  data-lucide="chevron-right"></i>
-                    <span class="foldername">{{fileOrFolder.displayName or fileOrFolderName}}</span>
-                    </div>
-                    {% for fileOrFolderName, child in fileOrFolder %}
-                        {{menuItem(fileOrFolderName, child, step+1, (currentPath+"/"+fileOrFolderName))}}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-        {%endif%}
-    {% endmacro %}
-    
-    <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
+   {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
+       <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
+           {%if fileOrFolder.isNote and not fileOrFolder.hide %}
+               <div @click.stop class="notelink {{ 'active-note' if fileOrFolder.permalink === permalink}}">
+                   <a data-note-icon="{{fileOrFolder.noteIcon}}" style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}} </a>
+               </div>
+           {% elif fileOrFolder.isFolder%}
+               {% if not (hideProjetos and fileOrFolderName == 'Projetos') %}
+               <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as({{currentPath | dump}})}" @click.stop="isOpen=!isOpen">
+                   <div class="foldername-wrapper align-icon">
+                   <i x-show="isOpen" style="display: none;"  data-lucide="chevron-down"></i>
+                   <i x-show="!isOpen"  data-lucide="chevron-right"></i>
+                   <span class="foldername">{{fileOrFolder.displayName or fileOrFolderName}}</span>
+                   </div>
+                   {% for fileOrFolderName, child in fileOrFolder %}
+                       {{menuItem(fileOrFolderName, child, step+1, (currentPath+"/"+fileOrFolderName))}}
+                   {% endfor %}
+               </div>
+               {% endif %}
+           {% endif %}
+       </div>
+       {%endif%}
+   {% endmacro %}
+   <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
            x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false; if (!isDesktop) { setDesktopDrawer(false); }"
-            x-data="{isDesktop: true, showFilesMobile: false, showDesktopTree: false, setDesktopDrawer(state) { this.showDesktopTree = state; document.body.classList.toggle('desktop-drawer-open', state); }}"
-            x-on:keydown.escape.window="setDesktopDrawer(false)">
-
-        <div x-show.important="!isDesktop" style="display: none;">
-            {%include "components/filetreeNavbar.njk"%}
+           x-data="{isDesktop: true, showFilesMobile: false, showDesktopTree: false, setDesktopDrawer(state) { this.showDesktopTree = state; document.body.classList.toggle('desktop-drawer-open', state); }}"
+           x-on:keydown.escape.window="setDesktopDrawer(false)">
+       <div x-show.important="!isDesktop" style="display: none;">
+           {%include "components/filetreeNavbar.njk"%}
+       </div>
+       <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
+       <div
+           x-show="isDesktop && showDesktopTree"
+           @click="setDesktopDrawer(false)"
+           x-transition.opacity
+           style="display:none;"
+           class="desktop-drawer-overlay"
+       ></div>
+     <div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display: none;">
+     <nav class="filetree-sidebar">
+       {% for imp in dynamics.filetree.beforeTitle %}
+           {% include imp %
+       {% endfor %}
+        <div class="filetree-topbar">
+           <button class="filetree-menu-toggle align-icon" @click.stop="setDesktopDrawer(!showDesktopTree)" aria-label="Abrir menu lateral">
+               <i data-lucide="menu"></i>
+           </button>
+           <a href="/" style="text-decoration: none;">
+               <h1 style="text-align:center;">{{meta.siteName}}</h1>
+           </a>
+           {% if settings.dgEnableSearch === true%}
+               <div class="filetree-topbar-search">
+                   {% include "components/searchButton.njk" %}
+               </div>
+           {%endif%}
         </div>
-        
-        <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
+        {% for imp in dynamics.filetree.afterTitle %}
+           {% include imp %}
+       {% endfor %}
+        <div class="filetree-drawer" x-show="!isDesktop || showDesktopTree" x-transition.opacity style="display: none;" @click="if (isDesktop && $event.target.closest('a')) setDesktopDrawer(false)">
+           <div class="filetree-drawer-header">
+               <a href="/" style="text-decoration: none;">
+                   <h2>{{meta.siteName}}</h2>
+               </a>
+               {% if settings.dgEnableSearch === true%}
+                   {% include "components/searchButton.njk" %}
+               {%endif%}
+           </div>
+           <div class="folder" x-data="{isOpen: true}">
+              <div class="filetree-section-label">Introdução</div>
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                 {% if fileOrFolder.isNote and fileOrFolder.name == 'Visão Geral' %}
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
 
-        <div
-            x-show="isDesktop && showDesktopTree"
-            @click="setDesktopDrawer(false)"
-            x-transition.opacity
-            style="display:none;"
-            class="desktop-drawer-overlay"
-        ></div>
 
-      <div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display: none;">
-      <nav class="filetree-sidebar">
-        {% for imp in dynamics.filetree.beforeTitle %}
-            {% include imp %}
-        {% endfor %}
+                 {% endif %}
 
-         <div class="filetree-topbar">
-            <button class="filetree-menu-toggle align-icon" @click.stop="setDesktopDrawer(!showDesktopTree)" aria-label="Abrir menu lateral">
-                <i data-lucide="menu"></i>
-            </button>
-            <a href="/" style="text-decoration: none;">
-                <h1 style="text-align:center;">{{meta.siteName}}</h1>
-            </a>
-            {% if settings.dgEnableSearch === true%}
-                <div class="filetree-topbar-search">
-                    {% include "components/searchButton.njk" %}
-                </div>
-            {%endif%}
-         </div>
 
-         {% for imp in dynamics.filetree.afterTitle %}
-            {% include imp %}
-        {% endfor %}
+              {%- endfor -%}
 
-         <div class="filetree-drawer" x-show="!isDesktop || showDesktopTree" x-transition.opacity style="display: none;" @click="if (isDesktop && $event.target.closest('a')) setDesktopDrawer(false)">
-            <div class="filetree-drawer-header">
-                <a href="/" style="text-decoration: none;">
-                    <h2>{{meta.siteName}}</h2>
-                </a>
-                {% if settings.dgEnableSearch === true%}
-                    {% include "components/searchButton.njk" %}
-                {%endif%}
-            </div>
-            <div class="folder" x-data="{isOpen: true}">
-               <div class="filetree-section-label">Introdução</div>
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {% if fileOrFolder.isNote and fileOrFolder.name == 'Visão Geral' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
-               {%- endfor -%}
 
-               <div class="filetree-section-divider"></div>
 
-               <div class="filetree-section-label">Navegação</div>
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {% if fileOrFolder.isNote and fileOrFolder.name == 'Universidade' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
-               {%- endfor -%}
 
-               <div class="filetree-section-divider"></div>
 
-               {% set hideProjetos = true %}
-               <div class="filetree-section-label">Arquivo Fonte</div>
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {% if fileOrFolder.isFolder and fileOrFolderName == 'Universidade' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
-               {%- endfor -%}
+              <div class="filetree-section-divider"></div>
 
-               {% set hideProjetos = false %}
 
-               {% if filetree['Universidade'] and filetree['Universidade']['Projetos'] %}
-                    <div class="filetree-section-divider"></div>
 
-                    <div class="filetree-section-label">Projetos</div>
-                    {% set projetosRoot = filetree['Universidade']['Projetos'] %}
-                    {%- for projetoName, projetoItem in projetosRoot -%}
-                      {% if projetoName != 'isFolder' and projetoName != 'displayName' %}
-                        {{menuItem(projetoName, projetoItem, 0, 'Universidade/Projetos/' + projetoName)}}
-                      {% endif %}
-                    {%- endfor -%}
+
+
+              <div class="filetree-section-label">Navegação</div>
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+                 {% if fileOrFolder.isNote and fileOrFolder.name == 'Universidade' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+              {%- endfor -%}
+
+
+
+
+
+              <div class="filetree-section-divider"></div>
+
+
+
+
+
+              {% set hideProjetos = true %}
+
+
+              <div class="filetree-section-label">Arquivo Fonte</div>
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+                 {% if fileOrFolder.isFolder and fileOrFolderName == 'Universidade' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+              {%- endfor -%}
+
+
+
+
+
+              {% set hideProjetos = false %}
+
+
+
+
+
+              {% if filetree['Universidade'] and filetree['Universidade']['Projetos'] %}
+
+
+                   <div class="filetree-section-divider"></div>
+
+
+
+
+
+                   <div class="filetree-section-label">Projetos</div>
+
+
+                   {% set projetosRoot = filetree['Universidade']['Projetos'] %}
+
+
+                   {%- for projetoName, projetoItem in projetosRoot -%}
+
+
+                     {% if projetoName != 'isFolder' and projetoName != 'displayName' %}
+
+
+                       {{menuItem(projetoName, projetoItem, 0, 'Universidade/Projetos/' + projetoName)}}
+
+
+                     {% endif %}
+
+
+                   {%- endfor -%}
+
+
+              {% endif %}
+
+
+
+
+
+              {# Itens restantes sem duplicar #}
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+
+
+                 {% if fileOrFolder.isNote and fileOrFolder.name != 'Visão Geral' and fileOrFolder.name != 'Universidade' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+                 {% if fileOrFolder.isFolder and fileOrFolderName != 'Universidade' and fileOrFolderName != 'Navegação' and fileOrFolderName != 'Projetos' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+              {%- endfor -%}
+
+
+           </div>
+
+
+        </div>
+
+
+     </nav>
+
+
+     </div>
+
+
+   </div>
+
+
+.;.
+
+   {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
+
+
+       <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
+
+
+           {%if fileOrFolder.isNote and not fileOrFolder.hide %}
+
+
+               <div @click.stop class="notelink {{ 'active-note' if fileOrFolder.permalink === permalink}}">
+
+
+                   <a data-note-icon="{{fileOrFolder.noteIcon}}" style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}} </a>
+
+
+               </div>
+
+
+           {% elif fileOrFolder.isFolder%}
+
+
+               {% if not (hideProjetos and fileOrFolderName == 'Projetos') %}
+
+
+               <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as({{currentPath | dump}})}" @click.stop="isOpen=!isOpen">
+
+
+                   <div class="foldername-wrapper align-icon">
+
+
+                   <i x-show="isOpen" style="display: none;"  data-lucide="chevron-down"></i>
+
+
+                   <i x-show="!isOpen"  data-lucide="chevron-right"></i>
+
+
+
+
+
+                   <span class="foldername">{{fileOrFolder.displayName or fileOrFolderName}}</span>
+
+
+                   </div>
+
+
+                   {% for fileOrFolderName, child in fileOrFolder %}
+
+
+                       {{menuItem(fileOrFolderName, child, step+1, (currentPath+"/"+fileOrFolderName))}}
+
+
+                   {% endfor %}
+
+
+               </div>
+
+
                {% endif %}
 
-               {# Itens restantes sem duplicar #}
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                   {% if fileOrFolder.isNote and fileOrFolder.name != 'Visão Geral' and fileOrFolder.name != 'Universidade' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
-                  {% if fileOrFolder.isFolder and fileOrFolderName != 'Universidade' and fileOrFolderName != 'Navegação' and fileOrFolderName != 'Projetos' %}
-                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-                  {% endif %}
-               {%- endfor -%}
-            </div>
-         </div>
-      </nav>
-      </div>
-    </div>
+
+           {% endif %}
+
+
+       </div>
+
+
+       {%endif%}
+
+
+   {% endmacro %}
+
+
+   
+
+
+   <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
+
+
+
+
+
+
+           x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false; if (!isDesktop) { setDesktopDrawer(false); }"
+
+
+           x-data="{isDesktop: true, showFilesMobile: false, showDesktopTree: false, setDesktopDrawer(state) { this.showDesktopTree = state; document.body.classList.toggle('desktop-drawer-open', state); }}"
+
+
+           x-on:keydown.escape.window="setDesktopDrawer(false)">
+
+
+
+
+
+       <div x-show.important="!isDesktop" style="display: none;">
+
+
+           {%include "components/filetreeNavbar.njk"%}
+
+
+       </div>
+
+
+       
+
+
+       <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
+
+
+
+
+
+       <div
+
+
+           x-show="isDesktop && showDesktopTree"
+
+
+           @click="setDesktopDrawer(false)"
+
+
+           x-transition.opacity
+
+
+           style="display:none;"
+
+
+           class="desktop-drawer-overlay"
+
+
+       ></div>
+
+
+
+
+
+     <div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display: none;">
+
+
+     <nav class="filetree-sidebar">
+
+
+       {% for imp in dynamics.filetree.beforeTitle %}
+
+
+           {% include imp %}
+
+
+       {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+        <div class="filetree-topbar">
+
+
+           <button class="filetree-menu-toggle align-icon" @click.stop="setDesktopDrawer(!showDesktopTree)" aria-label="Abrir menu lateral">
+
+
+               <i data-lucide="menu"></i>
+
+
+           </button>
+
+
+           <a href="/" style="text-decoration: none;">
+
+
+               <h1 style="text-align:center;">{{meta.siteName}}</h1>
+
+
+           </a>
+
+
+           {% if settings.dgEnableSearch === true%}
+
+
+               <div class="filetree-topbar-search">
+
+
+                   {% include "components/searchButton.njk" %}
+
+
+               </div>
+
+
+           {%endif%}
+
+
+        </div>
+
+
+
+
+
+        {% for imp in dynamics.filetree.afterTitle %}
+
+
+           {% include imp %}
+
+
+       {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="filetree-drawer" x-show="!isDesktop || showDesktopTree" x-transition.opacity style="display: none;" @click="if (isDesktop && $event.target.closest('a')) setDesktopDrawer(false)">
+
+
+           <div class="filetree-drawer-header">
+
+
+               <a href="/" style="text-decoration: none;">
+
+
+                   <h2>{{meta.siteName}}</h2>
+
+
+               </a>
+
+
+               {% if settings.dgEnableSearch === true%}
+
+
+                   {% include "components/searchButton.njk" %}
+
+
+               {%endif%}
+
+
+           </div>
+
+
+           <div class="folder" x-data="{isOpen: true}">
+
+
+              <div class="filetree-section-label">Introdução</div>
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+                 {% if fileOrFolder.isNote and fileOrFolder.name == 'Visão Geral' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+              {%- endfor -%}
+
+
+
+
+
+              <div class="filetree-section-divider"></div>
+
+
+
+
+
+              <div class="filetree-section-label">Navegação</div>
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+                 {% if fileOrFolder.isNote and fileOrFolder.name == 'Universidade' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+              {%- endfor -%}
+
+
+
+
+
+              <div class="filetree-section-divider"></div>
+
+
+
+
+
+              {% set hideProjetos = true %}
+
+
+              <div class="filetree-section-label">Arquivo Fonte</div>
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+                 {% if fileOrFolder.isFolder and fileOrFolderName == 'Universidade' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+              {%- endfor -%}
+
+
+
+
+
+              {% set hideProjetos = false %}
+
+
+
+
+
+              {% if filetree['Universidade'] and filetree['Universidade']['Projetos'] %}
+
+
+                   <div class="filetree-section-divider"></div>
+
+
+
+
+
+                   <div class="filetree-section-label">Projetos</div>
+
+
+                   {% set projetosRoot = filetree['Universidade']['Projetos'] %}
+
+
+                   {%- for projetoName, projetoItem in projetosRoot -%}
+
+
+                     {% if projetoName != 'isFolder' and projetoName != 'displayName' %}
+
+
+                       {{menuItem(projetoName, projetoItem, 0, 'Universidade/Projetos/' + projetoName)}}
+
+
+                     {% endif %}
+
+
+                   {%- endfor -%}
+
+
+              {% endif %}
+
+
+
+
+
+              {# Itens restantes sem duplicar #}
+
+
+              {%- for fileOrFolderName, fileOrFolder in filetree -%}
+
+
+
+
+                 {% if fileOrFolder.isNote and fileOrFolder.name != 'Visão Geral' and fileOrFolder.name != 'Universidade' %}
+
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+
+
+                 {% endif %}
+
+
+                 {% if fileOrFolder.isFolder and fileOrFolderName != 'Universidade' and fileOrFolderName != 'Navegação' and fileOrFolderName != 'Projetos' %}
+
+                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                 {% endif %}
+              {%- endfor -%}
+           </div>
+        </div>
+     </nav>
+     </div>
+   </div>
