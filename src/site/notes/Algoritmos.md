@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/algoritmos/"}
 ---
 
-
+# Algoritimos
 
 A definição de algoritmos é uma sequência finita e ordenada de passos lógicos para resolver um problema ou atingir um objetivo.
 
@@ -19,15 +19,15 @@ import time
 
 r = ['sim', 's', 'y', 'yes']
   
-print("Você chegou em ponto de atravessar a rua, então você")
+print("Você chegou em um ponto de atravessar a rua, então você...")
 
 time.sleep(2)
 
 while True:
 
-	print("Olha para a direita")
+	print("Olha para a direita...")
 	time.sleep(2)
-	print("Olha para a esquerda")
+	print("Olha para a esquerda...")
 	time.sleep(2)
 	
 	rua = input("Pode atravessar a rua? ").lower()
