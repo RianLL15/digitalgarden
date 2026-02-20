@@ -8,10 +8,10 @@
 Dia 12/03
 
 ## 📗 Disciplina
-- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Untitled/📗 DISCI - Untitled\|📗 DISCI - Untitled]]
+- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Introdução ao Cálculo/📗 DISCI - Introdução ao Cálculo\|📗 DISCI - Introdução ao Cálculo]]
 
 ## 📚 Conteúdos vistos hoje
-- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Untitled/Contúdo/📚 CONT - Untitled\|📚 CONT - Untitled]]
+- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Introdução ao Cálculo/Contúdo/📚 CONT - Untitled\|📚 CONT - Untitled]]
 
 ## 🧠 O que ficou claro hoje
 
