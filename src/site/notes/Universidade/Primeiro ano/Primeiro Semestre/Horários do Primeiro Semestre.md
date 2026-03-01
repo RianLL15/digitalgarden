@@ -16,3 +16,4 @@
 | 16:10 - 17:00 |         | Lóg. Mat.<br>K102     | Prog. Func.<br>F205 | Lóg. Mat.<br>K102     | Prog. Func.<br>F205 | Teo. G. Sist.<br>F107  |        |
 | 19:00 - 19:50 |         |                       |                     |                       |                     | Lóg. Mat.<br>Lab. F112 |        |
 | 19:50 - 20:40 |         |                       |                     |                       |                     | Lóg. Mat.<br>Lab. F112 |        |
+|               |         |                       |                     |                       |                     |                        |        |
