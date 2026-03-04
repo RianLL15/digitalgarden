@@ -4,11 +4,11 @@
 
 [[Universidade/Primeiro ano/Primeiro Semestre/Meses/Março/Primeira Semana/📅 AULA - Dia 01\|← Voltar para Anotações da Aula]]
 
-# 📗 DISCI - Untitled
+# 📗 DISCI - Lógica Matemática
 
 
 ## 📚 Conteúdos da disciplina
-- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Lógica Matemática/Contúdo/📚 CONT - Untitled\|Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Lógica Matemática/Contúdo/📚 CONT - Untitled]]
+- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Lógica Matemática/Contúdo/📚 CONT - Tabela Verdade\|📚 CONT - Tabela Verdade]]
 
 ## 🎯 Visão geral da disciplina
 

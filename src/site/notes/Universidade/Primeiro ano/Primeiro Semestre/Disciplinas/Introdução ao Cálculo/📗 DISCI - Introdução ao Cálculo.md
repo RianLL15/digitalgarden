@@ -8,7 +8,7 @@
 
 
 ## 📚 Conteúdos da disciplina
-- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Introdução ao Cálculo/Contúdo/📚 CONT - Untitled\|📚 CONT - Untitled]]
+- [[Universidade/Primeiro ano/Primeiro Semestre/Disciplinas/Lógica Matemática/Contúdo/📚 CONT - Tabela Verdade\|📚 CONT - Tabela Verdade]]
 
 ## 🎯 Visão geral da disciplina
 
